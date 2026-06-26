@@ -1,3 +1,5 @@
+
+
 # Village Sim — City Builder & Tactical Battles
 
 A Unity 2D strategy game combining village/city-building progression with tactical battle gameplay.
@@ -10,11 +12,11 @@ The project is inspired by Anno-style city builders and Fire Emblem-style combat
 
 ### City Simulation Flow
 
-PASTE_CITY_SIM_VIDEO_LINK_HERE
+[PASTE_CITY_SIM_VIDEO_LINK_HERE](https://youtu.be/gz0W5_NfAck)
 
 ### Battle Flow
 
-PASTE_BATTLE_VIDEO_LINK_HERE
+[PASTE_BATTLE_VIDEO_LINK_HERE](https://www.youtube.com/watch?v=yHeatZA-FOQ)
 
 ---
 
@@ -56,26 +58,19 @@ PASTE_BATTLE_VIDEO_LINK_HERE
 
 This project is currently in development.
 
-The core village simulation systems are being built alongside a tactical combat mode. Current work includes improving UI flow, grid alignment, deployment zones, combat feedback, and overall game polish.
-
----
-
-## Screenshots
-
-Screenshots will be added soon.
+The core village simulation systems are being built alongside a tactical combat mode. Main feature to be added is an upgrade system for villagers along with equipments for them.
 
 ---
 
 ## Roadmap
 
 - Improve city-building UI polish
-- Add clearer tile highlights and placement feedback
 - Expand villager roles and progression
 - Improve battle animations and projectile visibility
-- Add more building types
-- Add more tactical battle scenarios
-- Balance resource economy and combat stats
-
+- Create levels (30 for now) for the story mode
+- Villager XP and upgrades for battle
+- Equipments (along with an upgrade system for them
+- Add Audio
 ---
 
 ## About
