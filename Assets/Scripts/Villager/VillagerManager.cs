@@ -1,164 +1,340 @@
 using System;
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class VillagerManager : MonoBehaviour
 {
-    public event Action<int> OnVillagerBought, OnVillagerHoused, OnVillagerRemovedWithoutReplacement;
+    public event Action<int> OnVillagerBought;
+    public event Action<int> OnVillagerHoused;
     public event Action<int, int, bool> OnVillagerRemoved; // villagerIndex, inVillageIndex, isEmployed
-    public event Action<int, int, Villager> OnVillagerAssigned; // this is for building registry manager, input is building index, inVillagerIndex, villager slot
+    public event Action<int, int, Villager> OnVillagerAssigned; // buildingIndex, villagerSlot, villager
     public event Action<int, int, int, string> OnVillagerEmployed; // inVillageIndex, previousVillagerInVillageIndex, prevVillagerIndex, buildingName
-    public event Action<Villager, bool> OnVillagerTotallyRemoved; // adjust slot UI
+    public event Action<int, int> OnVillagerRemovedWithoutReplacement; // villagerIndex, inVillageIndex
+    public event Action<Villager, bool> OnVillagerTotallyRemoved; // villager, removedFromVillage
 
+    [SerializeField] private GameObject villagerPrefab;
+    [SerializeField] private PlacementSystem placementManager;
+    [SerializeField] private VillagersDataSO villagerDatabase;
+    [SerializeField] private VillagerInventoryManager inventoryManager;
 
-    [SerializeField]
-    private GameObject villagerPrefab;
-    
-    [SerializeField]
-    private PlacementSystem placementManager;
+    private readonly List<Villager> villagersHeld = new();
+    private readonly List<int> villagersHeldID = new();
+    private readonly List<Villager> villagersInVillage = new();
+    private readonly List<int> villagerInVillageIndex = new(); // maps in-village slot -> villagersHeld index
 
-    public List<Villager> villagersHeld = new List<Villager>();
-    public List<int> villagersHeldID = new List<int>();
-    public List<Villager> villagersInVillage = new List<Villager>();
-    public List<int> villagerInVillageIndex = new List<int>(); // list of index of villager in villagers held for every villager in village
+    public int SelectedBuildingIndex { get; private set; } = -1;
+    public int SelectedVillagerSlot { get; private set; } = -1;
+    public bool IsHouseSelection { get; private set; } = false;
 
-    public int selectedBuildingIndex;
-    public int selectedVillagerSlot;
-    public bool isHouse;
+    public int VillagersHeldCount => villagersHeld.Count;
+    public int VillagersInVillageCount => villagersInVillage.Count;
 
-    [SerializeField]
-    private VillagersDataSO villagerDatabase;
-    [SerializeField]
-    private VillagerInventoryManager inventoryManager;
-
-    public void selectBuildingSlot(int buildingIndex, int villagerSlot, bool buildingIsHouse)
+    public void SelectBuildingSlot(int buildingIndex, int villagerSlot, bool buildingIsHouse)
     {
-        selectedBuildingIndex = buildingIndex;
-        selectedVillagerSlot = villagerSlot;
-        isHouse = buildingIsHouse;
-        if (isHouse)
+        SelectedBuildingIndex = buildingIndex;
+        SelectedVillagerSlot = villagerSlot;
+        IsHouseSelection = buildingIsHouse;
+
+        if (IsHouseSelection)
         {
-            inventoryManager.openAllInventory();
+            inventoryManager.OpenAllInventory();
         }
         else
         {
-            inventoryManager.openAvailableInventory();
+            inventoryManager.OpenAvailableInventory();
         }
     }
 
+    public void selectBuildingSlot(int buildingIndex, int villagerSlot, bool buildingIsHouse)
+    {
+        SelectBuildingSlot(buildingIndex, villagerSlot, buildingIsHouse);
+    }
 
-    public void buyVillager(int villagerID)
+    public void BuyVillager(int villagerID)
     {
         if (villagersHeldID.Contains(villagerID))
-        {
             return;
-        }
-        villagersHeldID.Add(villagerID);
+
         VillagerData villagerData = villagerDatabase.GetVillagerDataByID(villagerID);
-        // Instantiate villager prefab
+        if (villagerData == null)
+            return;
+
+        villagersHeldID.Add(villagerID);
+
         GameObject villagerGO = Instantiate(villagerPrefab, transform);
         Villager villager = villagerGO.GetComponent<Villager>();
-        Animator villagerAnimator = villagerGO.GetComponent<Animator>();
 
-        // Initialize villager
         villager.Initialize(villagerData);
+        villager.Index = villagersHeld.Count;
+
         villagersHeld.Add(villager);
-        villager.Index = villagersHeld.Count - 1;
 
         OnVillagerBought?.Invoke(villagerID);
     }
 
-    public void AssignVillagertoBuilding(int villagerIndex)
+    public void buyVillager(int villagerID)
     {
+        BuyVillager(villagerID);
+    }
+
+    public void AssignVillagerToBuilding(int villagerIndex)
+    {
+        if (!IsValidHeldVillagerIndex(villagerIndex) || !HasValidSelectedBuilding())
+        {
+            ResetSelection();
+            return;
+        }
+
+        int targetBuildingIndex = SelectedBuildingIndex;
+        int targetVillagerSlot = SelectedVillagerSlot;
+        bool assigningToHouse = IsHouseSelection;
+
         Villager villager = villagersHeld[villagerIndex];
 
-        if (isHouse)
+        if (assigningToHouse)
         {
-            villagersInVillage.Add(villager);
-            villagerInVillageIndex.Add(villagerIndex);
-            villager.Housed(selectedBuildingIndex, selectedVillagerSlot);
+            HouseVillager(villager, villagerIndex, targetBuildingIndex, targetVillagerSlot);
         }
 
-        GameObject building = placementManager.placedGameObjects[selectedBuildingIndex];
-        Building buildingComponent = building.GetComponent<Building>();
-        Villager previousVillager = buildingComponent.GetVillagerInSlot(selectedVillagerSlot);
+        Building selectedBuilding = GetPlacedBuilding(targetBuildingIndex);
+        if (selectedBuilding == null)
+        {
+            ResetSelection();
+            return;
+        }
 
-        int inVillageIndex = villagerInVillageIndex.IndexOf(villagerIndex);
-        int prevInVillageIndex = -1;
-        int prevVillagerIndex = -1;
+        Villager previousVillager = selectedBuilding.GetVillagerInSlot(targetVillagerSlot);
+
+        int inVillageIndex = GetInVillageIndex(villagerIndex);
+        int previousInVillageIndex = -1;
+        int previousVillagerIndex = -1;
+
         if (previousVillager != null)
         {
-            prevVillagerIndex = previousVillager.Index;
-            prevInVillageIndex = villagerInVillageIndex.IndexOf(prevVillagerIndex);
-            if (isHouse)
-            {
-                Villager prevVillager = villagersHeld[prevVillagerIndex];
-                RemoveVillagerFromVillage(prevVillagerIndex, prevVillager.isEmployed);
-            }
-            else
-            {
-                int prevVillagerSlot = previousVillager.assignedBuildingSlot;
-                buildingComponent.RemoveVillagerFromSlot(prevVillagerSlot);
-                previousVillager.Unemploy();
-
-            }
+            previousVillagerIndex = previousVillager.Index;
+            previousInVillageIndex = GetInVillageIndex(previousVillagerIndex);
+            HandlePreviousVillagerReplacement(selectedBuilding, previousVillager, previousVillagerIndex, assigningToHouse);
         }
 
-        // Assign the new villager to the selected slot
-        buildingComponent.AssignVillagerToSlot(selectedVillagerSlot, villager);
+        selectedBuilding.AssignVillagerToSlot(targetVillagerSlot, villager);
 
-        if (isHouse)
+        if (assigningToHouse)
         {
             OnVillagerHoused?.Invoke(villagerIndex);
         }
         else
         {
-            // If selected villager is already employed
-            if (villager.isEmployed)
-            {
-                placementManager.placedGameObjects[villager.assignedBuildingIndex].GetComponent<Building>().RemoveVillagerFromSlot(villager.assignedBuildingSlot);
-                OnVillagerTotallyRemoved?.Invoke(villager, false);
-            }
-            OnVillagerEmployed?.Invoke(inVillageIndex, prevInVillageIndex, prevVillagerIndex, buildingComponent.BuildingName);
-            villager.Employed(selectedBuildingIndex, selectedVillagerSlot);
+            HandleEmploymentAssignment(
+                villager,
+                inVillageIndex,
+                previousInVillageIndex,
+                previousVillagerIndex,
+                selectedBuilding.BuildingName,
+                targetBuildingIndex,
+                targetVillagerSlot);
         }
 
-        OnVillagerAssigned?.Invoke(selectedBuildingIndex, selectedVillagerSlot, villager);
+        OnVillagerAssigned?.Invoke(targetBuildingIndex, targetVillagerSlot, villager);
+        ResetSelection();
+    }
 
-        selectedBuildingIndex = -1;
-        selectedVillagerSlot = -1;
-        isHouse = false;
+    public void AssignVillagertoBuilding(int villagerIndex)
+    {
+        AssignVillagerToBuilding(villagerIndex);
     }
 
     public void RemoveVillagerFromBuilding(int villagerIndex)
     {
-        Villager villager = villagersHeld[villagerIndex];
+        if (!IsValidHeldVillagerIndex(villagerIndex))
+            return;
 
-        placementManager.placedGameObjects[villager.assignedBuildingIndex].GetComponent<Building>().RemoveVillagerFromSlot(villager.assignedBuildingSlot);
-        OnVillagerRemovedWithoutReplacement?.Invoke(villagerIndex);
+        Villager villager = villagersHeld[villagerIndex];
+        if (!villager.isEmployed || villager.assignedBuildingIndex < 0 || villager.assignedBuildingSlot < 0)
+            return;
+
+        Building assignedBuilding = GetPlacedBuilding(villager.assignedBuildingIndex);
+        if (assignedBuilding == null)
+            return;
+
+        int inVillageIndex = GetInVillageIndex(villagerIndex);
+
+        assignedBuilding.RemoveVillagerFromSlot(villager.assignedBuildingSlot);
+        OnVillagerRemovedWithoutReplacement?.Invoke(villagerIndex, inVillageIndex);
         OnVillagerTotallyRemoved?.Invoke(villager, false);
+
         villager.Unemploy();
     }
 
-    public void RemoveVillagerFromVillage(int villagerIndex, bool isEmployed)
+    public void RemoveVillagerFromVillage(int villagerIndex, bool villagerIsEmployed)
     {
+        if (!IsValidHeldVillagerIndex(villagerIndex))
+            return;
+
         Villager villager = villagersHeld[villagerIndex];
-        Building house = placementManager.placedGameObjects[villager.assignedHouseIndex].GetComponent<Building>();
-        if (isEmployed)
+        Building house = GetPlacedBuilding(villager.assignedHouseIndex);
+        if (house == null)
+            return;
+
+        if (villagerIsEmployed)
         {
-            Building building = placementManager.placedGameObjects[villager.assignedBuildingIndex].GetComponent<Building>();
-            OnVillagerTotallyRemoved?.Invoke(villager, false);
-            building.RemoveVillagerFromSlot(villager.assignedBuildingSlot);
+            Building building = GetPlacedBuilding(villager.assignedBuildingIndex);
+            if (building != null)
+            {
+                OnVillagerTotallyRemoved?.Invoke(villager, false);
+                building.RemoveVillagerFromSlot(villager.assignedBuildingSlot);
+            }
+
             villager.Unemploy();
         }
 
-        int availableVillagerIndex = villagerInVillageIndex.IndexOf(villagerIndex);
-        villagerInVillageIndex.RemoveAt(availableVillagerIndex);
-        villagersInVillage.RemoveAt(availableVillagerIndex);
+        int inVillageIndex = GetInVillageIndex(villagerIndex);
+        if (inVillageIndex < 0)
+            return;
 
-        OnVillagerRemoved?.Invoke(villagerIndex, availableVillagerIndex, isEmployed);
+        villagerInVillageIndex.RemoveAt(inVillageIndex);
+        villagersInVillage.RemoveAt(inVillageIndex);
+
+        OnVillagerRemoved?.Invoke(villagerIndex, inVillageIndex, villagerIsEmployed);
         OnVillagerTotallyRemoved?.Invoke(villager, true);
+
         house.RemoveVillagerFromSlot(villager.assignedHouseSlot);
         villager.RemoveFromVillage();
+    }
+
+    public void CancelSelection()
+    {
+        ResetSelection();
+    }
+
+    public void CloseAllInventorySelection()
+    {
+        inventoryManager.CloseAllInventory();
+        ResetSelection();
+    }
+
+    public void CloseAvailableInventorySelection()
+    {
+        inventoryManager.CloseAvailableInventory();
+        ResetSelection();
+    }
+
+    public bool HasVillagerIDAt(int villagerIndex)
+    {
+        return villagerIndex >= 0 && villagerIndex < villagersHeldID.Count;
+    }
+
+    public int GetVillagerIDAt(int villagerIndex)
+    {
+        if (!HasVillagerIDAt(villagerIndex))
+            return -1;
+
+        return villagersHeldID[villagerIndex];
+    }
+
+    public bool HasHeldVillagerAt(int villagerIndex)
+    {
+        return villagerIndex >= 0 && villagerIndex < villagersHeld.Count;
+    }
+
+    public Villager GetHeldVillagerAt(int villagerIndex)
+    {
+        if (!HasHeldVillagerAt(villagerIndex))
+            return null;
+
+        return villagersHeld[villagerIndex];
+    }
+
+    public bool IsVillagerInVillage(int villagerIndex)
+    {
+        return GetInVillageIndex(villagerIndex) != -1;
+    }
+
+    public int GetInVillageIndexForHeldVillager(int villagerIndex)
+    {
+        return GetInVillageIndex(villagerIndex);
+    }
+
+    private void HouseVillager(Villager villager, int villagerIndex, int buildingIndex, int villagerSlot)
+    {
+        if (villager.isHoused)
+            return;
+
+        villagersInVillage.Add(villager);
+        villagerInVillageIndex.Add(villagerIndex);
+        villager.Housed(buildingIndex, villagerSlot);
+    }
+
+    private void HandlePreviousVillagerReplacement(Building selectedBuilding, Villager previousVillager, int previousVillagerIndex, bool assigningToHouse)
+    {
+        if (assigningToHouse)
+        {
+            RemoveVillagerFromVillage(previousVillagerIndex, previousVillager.isEmployed);
+            return;
+        }
+
+        int previousVillagerSlot = previousVillager.assignedBuildingSlot;
+        selectedBuilding.RemoveVillagerFromSlot(previousVillagerSlot);
+        previousVillager.Unemploy();
+    }
+
+    private void HandleEmploymentAssignment(
+        Villager villager,
+        int inVillageIndex,
+        int previousInVillageIndex,
+        int previousVillagerIndex,
+        string buildingName,
+        int buildingIndex,
+        int villagerSlot)
+    {
+        if (villager.isEmployed)
+        {
+            Building previousBuilding = GetPlacedBuilding(villager.assignedBuildingIndex);
+            if (previousBuilding != null)
+            {
+                previousBuilding.RemoveVillagerFromSlot(villager.assignedBuildingSlot);
+            }
+
+            OnVillagerTotallyRemoved?.Invoke(villager, false);
+        }
+
+        OnVillagerEmployed?.Invoke(inVillageIndex, previousInVillageIndex, previousVillagerIndex, buildingName);
+        villager.Employed(buildingIndex, villagerSlot);
+    }
+
+    private Building GetPlacedBuilding(int buildingIndex)
+    {
+        if (placementManager == null)
+            return null;
+
+        if (buildingIndex < 0 || buildingIndex >= placementManager.placedGameObjects.Count)
+            return null;
+
+        GameObject buildingObject = placementManager.placedGameObjects[buildingIndex];
+        if (buildingObject == null)
+            return null;
+
+        return buildingObject.GetComponent<Building>();
+    }
+
+    private int GetInVillageIndex(int villagerIndex)
+    {
+        return villagerInVillageIndex.IndexOf(villagerIndex);
+    }
+
+    private bool IsValidHeldVillagerIndex(int villagerIndex)
+    {
+        return villagerIndex >= 0 && villagerIndex < villagersHeld.Count;
+    }
+
+    private bool HasValidSelectedBuilding()
+    {
+        return SelectedBuildingIndex >= 0 && SelectedVillagerSlot >= 0;
+    }
+
+    private void ResetSelection()
+    {
+        SelectedBuildingIndex = -1;
+        SelectedVillagerSlot = -1;
+        IsHouseSelection = false;
     }
 }

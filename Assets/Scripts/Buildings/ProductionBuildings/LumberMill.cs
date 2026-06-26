@@ -13,9 +13,9 @@ public class LumberMill : ProductionBuilding
         workPositions = workPositionsOne;
 
         inputMethodBase = new int[] { 0, 0 };
-        inputMethodOne = new int[] { 1, 1 };
-        inputMethodTwo = new int[] { 2, 2 };
-        inputMethodThree = new int[] { 3, 3 };
+        inputMethodOne = new int[] { 2, 1 };
+        inputMethodTwo = new int[] { 4, 2 };
+        inputMethodThree = new int[] { 6, 3 };
 
         outputMethodBase = new int[] { 0 };
         outputMethodOne = new int[] { 1 };
@@ -33,16 +33,6 @@ public class LumberMill : ProductionBuilding
     public override void UpgradeBuilding()
     {
         base.UpgradeBuilding();
-
-        if (Level == 2)
-        {
-            BuildingName = "Lumber Mill LVL2";
-            workPositions = workPositionsTwo;
-        }
-        else if (Level == 3)
-        {
-            BuildingName = "Lumber Mill LVL3";
-            workPositions = workPositionsThree;
-        }
+        SetBuildingNameByLevel("Lumber Mill");
     }
 }

@@ -10,9 +10,9 @@ public class Logger : ProductionBuilding
         inputMethodThree = new int[] { };
 
         outputMethodBase = new int[] { 0 };
-        outputMethodOne = new int[] { 1 };
-        outputMethodTwo = new int[] { 2 };
-        outputMethodThree = new int[] { 3 };
+        outputMethodOne = new int[] { 2 };
+        outputMethodTwo = new int[] { 4 };
+        outputMethodThree = new int[] { 6 };
 
         NeededResourcesID = new int[] { };
         ProducedResourcesID = new int[] { 1 };
@@ -25,14 +25,6 @@ public class Logger : ProductionBuilding
     public override void UpgradeBuilding()
     {
         base.UpgradeBuilding();
-
-        if (Level == 2)
-        {
-            BuildingName = "Logger LVL2";
-        }
-        else if (Level == 3)
-        {
-            BuildingName = "Logger LVL3";
-        }
+        SetBuildingNameByLevel("Logger");
     }
 }

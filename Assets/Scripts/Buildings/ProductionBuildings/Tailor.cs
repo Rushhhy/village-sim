@@ -7,9 +7,9 @@ public class Tailor : ProductionBuilding
     {
         base.Awake();
 
-        workPositionsOne = new List<Vector3>() { new Vector3(1.954f, 0.733f, 0) };
-        workPositionsTwo = new List<Vector3>() { new Vector3(2.178f, 0.73f, 0) };
-        workPositionsThree = new List<Vector3>() { new Vector3(2.16f, 1f, 0), new Vector3(2.16f, 0.43f, 0) };
+        workPositionsOne = new List<Vector3>() { new Vector3(1.954f, 0.733f, 0) }; // for level 1
+        workPositionsTwo = new List<Vector3>() { new Vector3(2.178f, 0.73f, 0) }; // for level 2
+        workPositionsThree = new List<Vector3>() { new Vector3(2.16f, 1f, 0), new Vector3(2.16f, 0.43f, 0) }; // for level 3
         workPositions = workPositionsOne;
 
         inputMethodBase = new int[] { 0, 0 };
@@ -33,16 +33,6 @@ public class Tailor : ProductionBuilding
     public override void UpgradeBuilding()
     {
         base.UpgradeBuilding();
-
-        if (Level == 2)
-        {
-            BuildingName = "Tailor LVL2";
-            workPositions = workPositionsTwo;
-        }
-        else if (Level == 3)
-        {
-            BuildingName = "Tailor LVL3";
-            workPositions = workPositionsThree;
-        }
+        SetBuildingNameByLevel("Tailor");
     }
 }

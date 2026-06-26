@@ -27,18 +27,6 @@ public class Refinery : ProductionBuilding
     public override void UpgradeBuilding()
     {
         base.UpgradeBuilding();
-
-        if (Level == 1)
-        {
-            BuildingName = "Refinery LVL1";
-        }
-        else if (Level == 2)
-        {
-            BuildingName = "Refinery LVL2";
-        }
-        else if (Level == 3)
-        {
-            BuildingName = "Refinery LVL3";
-        }
+        SetBuildingNameByLevel("Refinery");
     }
 }

@@ -14,20 +14,6 @@ public class BathHouse : Building
     public override void UpgradeBuilding()
     {
         base.UpgradeBuilding();
-
-        if (Level == 1)
-        {
-            BuildingName = "Bath House LVL1";
-        }
-        if (Level == 2)
-        {
-            BuildingName = "Bath House LVL2";
-            workPositions = workPositionsTwo;
-        }
-        else if (Level == 3)
-        {
-            BuildingName = "Bath House LVL3";
-            workPositions = workPositionsThree;
-        }
+        SetBuildingNameByLevel("Bath House");
     }
 }

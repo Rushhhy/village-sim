@@ -67,6 +67,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: f89c87908a5bb2346b583b2d69afa8a0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2063235784867047276}
+    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: f89c87908a5bb2346b583b2d69afa8a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4212330389755500109}
   m_SourcePrefab: {fileID: -8435245712485981826, guid: f89c87908a5bb2346b583b2d69afa8a0, type: 3}
 --- !u!212 &1616173484870165876 stripped
 SpriteRenderer:
@@ -112,4 +115,21 @@ MonoBehaviour:
   smokeExplosionPrefab: {fileID: 3416172978003560163, guid: eb6d53b1f414c3d4e9f06e24181d1d2f, type: 3}
   hammerPrefab: {fileID: 2000148515507632619, guid: 93ac401c2dc0c0041bf317fd39e63545, type: 3}
   workPositions: []
+  workPositionsOne: []
+  workPositionsTwo: []
+  workPositionsThree: []
+  resourceGainPopupPrefab: {fileID: 162937989195649049, guid: a74ec7df501d0a940b0417fdca48589c, type: 3}
   ProductionType: 0
+  resources: {fileID: 11400000, guid: 1e9501016d78fe848a4914f45eb0c829, type: 2}
+--- !u!114 &4212330389755500109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4936181962585645816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dfd29584456df14c8ab17f3601e7b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

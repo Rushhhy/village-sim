@@ -9,17 +9,17 @@ public class Mine : ProductionBuilding
 
         workPositions = new List<Vector3>() { new Vector3(0, 1.1f, 0), new Vector3(3.05f, 1.1f, 0) };
 
-        inputMethodBase = new int[] { 0, 0 };
-        inputMethodOne = new int[] { 1, 1 };
-        inputMethodTwo = new int[] { 2, 2 };
-        inputMethodThree = new int[] { 3, 3 };
+        inputMethodBase = new int[] { };
+        inputMethodOne = new int[] { };
+        inputMethodTwo = new int[] { };
+        inputMethodThree = new int[] { };
 
         outputMethodBase = new int[] { 0, 0 };
-        outputMethodOne = new int[] { 2, 2 };
-        outputMethodTwo = new int[] { 3, 3 };
-        outputMethodThree = new int[] { 4, 4 };
+        outputMethodOne = new int[] { 1, 1 };
+        outputMethodTwo = new int[] { 2, 2 };
+        outputMethodThree = new int[] { 3, 3 };
 
-        NeededResourcesID = new int[] { 2, 2 };
+        NeededResourcesID = new int[] { };
         ProducedResourcesID = new int[] { 3, 4 };
         ResourceProductionTime = new float[] { 10f, 10f };
 
@@ -36,19 +36,7 @@ public class Mine : ProductionBuilding
     public override void UpgradeBuilding()
     {
         base.UpgradeBuilding();
-
-        if (Level == 1)
-        {
-            BuildingName = "Mine LVL1";
-        }
-        else if (Level == 2)
-        {
-            BuildingName = "Mine LVL2";
-        }
-        else if (Level == 3)
-        {
-            BuildingName = "Mine LVL3";
-        }
+        SetBuildingNameByLevel("Mine");
     }
 
     public override void FinishConstruction()

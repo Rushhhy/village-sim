@@ -130,8 +130,8 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 22
-      height: 22
+      width: 32
+      height: 32
     spriteID: d690e8d401517934097fb8e020185efc
     spriteBone: []
     spriteOutline: []
@@ -149,9 +149,9 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 34
-      width: 22
-      height: 22
+      y: 44
+      width: 32
+      height: 32
     spriteID: 9c1191726dc94f94d936c50d07febfb2
     spriteBone: []
     spriteOutline: []
@@ -160,7 +160,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 34}
+    uvTransform: {x: 4, y: 44}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -175,9 +175,9 @@ ScriptedImporter:
       additiveSortOrder: 0
       cellRect:
         x: 0
-        y: 1
-        width: 22
-        height: 22
+        y: 0
+        width: 32
+        height: 32
       spriteId: d690e8d401517934097fb8e020185efc
     - name: Frame_1
       frameIndex: 1
@@ -185,8 +185,8 @@ ScriptedImporter:
       cellRect:
         x: 0
         y: 0
-        width: 22
-        height: 22
+        width: 32
+        height: 32
       spriteId: 9c1191726dc94f94d936c50d07febfb2
     linkedCells: []
     parentIndex: -1
@@ -266,4 +266,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 22, y: 23}
+  canvasSize: {x: 32, y: 32}

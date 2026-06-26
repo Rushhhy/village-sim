@@ -5,9 +5,9 @@ public class Mill : ProductionBuilding
         base.Awake();
 
         inputMethodBase = new int[] { 0 };
-        inputMethodOne = new int[] { 1 };
-        inputMethodTwo = new int[] { 2 };
-        inputMethodThree = new int[] { 3 };
+        inputMethodOne = new int[] { 2 };
+        inputMethodTwo = new int[] { 4 };
+        inputMethodThree = new int[] { 6 };
 
         outputMethodBase = new int[] { 0 };
         outputMethodOne = new int[] { 1 };
@@ -25,14 +25,6 @@ public class Mill : ProductionBuilding
     public override void UpgradeBuilding()
     {
         base.UpgradeBuilding();
-
-        if (Level == 2)
-        {
-            BuildingName = "Windmill LVL2";
-        }
-        else if (Level == 3)
-        {
-            BuildingName = "Windmill LVL3";
-        }
+        SetBuildingNameByLevel("Mill");
     }
 }

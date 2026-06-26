@@ -15,6 +15,7 @@ MonoBehaviour:
   objectsData:
   - <Name>k__BackingField: Straight Top/Bottom
     <ID>k__BackingField: 0
+    <Category>k__BackingField: 1
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 6428626995598478874, guid: fed70c4ba2fde57498ed31cd443efc13, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 0}
@@ -22,6 +23,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
   - <Name>k__BackingField: Straight Right
     <ID>k__BackingField: 1
+    <Category>k__BackingField: 1
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 1633446502412958550, guid: 5e6d3c1e41ee5a045bc0f40f2fa804c0, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 0}
@@ -29,6 +31,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
   - <Name>k__BackingField: Straight Left
     <ID>k__BackingField: 2
+    <Category>k__BackingField: 1
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 7473840197730037048, guid: 6edb67724086af248bf27861068bd143, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 0}
@@ -36,6 +39,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
   - <Name>k__BackingField: Dead End Top
     <ID>k__BackingField: 3
+    <Category>k__BackingField: 1
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 5057436266713008315, guid: c69ff4e00e60dde4bb5e30dd77fed544, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 0}
@@ -43,6 +47,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
   - <Name>k__BackingField: Dead End Bottom
     <ID>k__BackingField: 4
+    <Category>k__BackingField: 1
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 7305634365349977466, guid: 4fe3f4303dc07654ba2a6dbc94270387, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 0}
@@ -50,6 +55,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
   - <Name>k__BackingField: Dead End Left
     <ID>k__BackingField: 5
+    <Category>k__BackingField: 1
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 1437050898887743005, guid: 0da625c84074d7b45a77c3d54be63e98, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 0}
@@ -57,6 +63,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
   - <Name>k__BackingField: Dead End Right
     <ID>k__BackingField: 6
+    <Category>k__BackingField: 1
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 8723412775947951440, guid: 2e75c7db958b10c46adbad18ad904088, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 0}
@@ -64,6 +71,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
   - <Name>k__BackingField: Corner Top Right
     <ID>k__BackingField: 7
+    <Category>k__BackingField: 1
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 5109580288672876083, guid: 0257cad72f210974fa3776f12a08f918, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 0}
@@ -71,6 +79,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
   - <Name>k__BackingField: Corner Bottom Right
     <ID>k__BackingField: 8
+    <Category>k__BackingField: 1
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 685655888599095400, guid: 9a218b50f2bcb9a4cbed4b285fa7d85d, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 0}
@@ -78,6 +87,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
   - <Name>k__BackingField: Corner Bottom Left
     <ID>k__BackingField: 9
+    <Category>k__BackingField: 1
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 177257465005501687, guid: 4c657e8fed4c5954cba8108d98e554c6, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 0}
@@ -85,6 +95,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
   - <Name>k__BackingField: Corner Top Left
     <ID>k__BackingField: 10
+    <Category>k__BackingField: 1
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 6436686407901811866, guid: d7397e86536aa8d42aca220953ec67f7, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 0}
@@ -92,6 +103,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
   - <Name>k__BackingField: Three Way TRL
     <ID>k__BackingField: 11
+    <Category>k__BackingField: 1
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 6211944611513724083, guid: cbba2e461231fff46abbe9a114d0d2b4, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 0}
@@ -99,6 +111,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
   - <Name>k__BackingField: Three Way BRL
     <ID>k__BackingField: 12
+    <Category>k__BackingField: 1
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 7889887554181076839, guid: cbb924850ed34bd47aeb8ba6372021fd, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 0}
@@ -106,6 +119,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
   - <Name>k__BackingField: Three Way TRB
     <ID>k__BackingField: 13
+    <Category>k__BackingField: 1
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 7917474403759345499, guid: 1a67523e7e1542140aa7df80fec28ab7, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 0}
@@ -113,6 +127,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
   - <Name>k__BackingField: Three Way TLB
     <ID>k__BackingField: 14
+    <Category>k__BackingField: 1
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 6362855886106593452, guid: a1865ecb0826f6142838e3fdd69443eb, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 0}
@@ -120,6 +135,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
   - <Name>k__BackingField: Four Way
     <ID>k__BackingField: 15
+    <Category>k__BackingField: 1
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 7291912585378823538, guid: fceafb2264ac8c54a91562ce99626597, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 0}
@@ -127,6 +143,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
   - <Name>k__BackingField: Alchemist
     <ID>k__BackingField: 16
+    <Category>k__BackingField: 2
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 3724307641310013515, guid: 84d9dc19cb5c5834a8fce3312880e952, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 7962262396178443465, guid: 714246fbb1222074da02bcd23127e102, type: 3}
@@ -134,6 +151,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 3, y: 2}
   - <Name>k__BackingField: Armory
     <ID>k__BackingField: 17
+    <Category>k__BackingField: 2
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 1016835826803131135, guid: 6592823c5887d0949bcce202e0bb99db, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 4943923200612067422, guid: c36b074c0275e334fa8ba1c6f3f764a0, type: 3}
@@ -141,6 +159,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 3, y: 2}
   - <Name>k__BackingField: Bakery
     <ID>k__BackingField: 18
+    <Category>k__BackingField: 2
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 6884065861365078344, guid: b22113180d54ae142a3a780501c77c2a, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 6782669449805643553, guid: 2f1b8f76c12718c458e3feee54d40fea, type: 3}
@@ -148,6 +167,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 2, y: 2}
   - <Name>k__BackingField: Barracks
     <ID>k__BackingField: 19
+    <Category>k__BackingField: 2
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 1371201881460502303, guid: 55250ffb1fb3f234abb5f8c11454a52f, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 8723999997020863215, guid: d940bc0fa005f074bac2d8aca8b274e3, type: 3}
@@ -155,6 +175,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 3, y: 2}
   - <Name>k__BackingField: Bath House
     <ID>k__BackingField: 20
+    <Category>k__BackingField: 2
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 1734893232343818539, guid: fddb1f702b4f449468c374ccdf0c6dd5, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 7949096916203385030, guid: 92a014dee740284489f964da3231b077, type: 3}
@@ -162,6 +183,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 3, y: 2}
   - <Name>k__BackingField: Blacksmith
     <ID>k__BackingField: 21
+    <Category>k__BackingField: 2
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 9147909193541991817, guid: ad78f6bb7119f554e94cb9f0842be4b9, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 8082261841815323754, guid: cd9bd423376405240839f01202acc5d2, type: 3}
@@ -169,6 +191,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 3, y: 2}
   - <Name>k__BackingField: Carpenter
     <ID>k__BackingField: 22
+    <Category>k__BackingField: 2
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 1166002641118106591, guid: d2a82d9682ed8d046a9f7718741cd934, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 7101301504368345257, guid: 82c8c4e2e7c889e4299647f379685aa0, type: 3}
@@ -176,6 +199,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 3, y: 2}
   - <Name>k__BackingField: Farm
     <ID>k__BackingField: 23
+    <Category>k__BackingField: 2
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 3090439697525190361, guid: a93bb87cdad5e3c488066ffa44701ddf, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 1094141528790968970, guid: a5b83eaac3befaa4a962f8d267a682e1, type: 3}
@@ -183,6 +207,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 3, y: 2}
   - <Name>k__BackingField: Hospital
     <ID>k__BackingField: 24
+    <Category>k__BackingField: 2
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 5409425520982675449, guid: 696a8562fe9d09f478aaf154d3f99dfb, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 6914465213234292223, guid: 51528abe744aacc428df6855926d0623, type: 3}
@@ -190,6 +215,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 2, y: 2}
   - <Name>k__BackingField: House
     <ID>k__BackingField: 25
+    <Category>k__BackingField: 2
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 2921482511569697335, guid: 6156a1ee5aaaf1e42b9f6f135cbd3313, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 5178848510958340777, guid: 2031c3f246b02874ab09bf3d307ce132, type: 3}
@@ -197,6 +223,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 2, y: 2}
   - <Name>k__BackingField: Logger
     <ID>k__BackingField: 26
+    <Category>k__BackingField: 2
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 6889333806189696909, guid: d155f67af71a7c54f9d3a1de9fceb0c3, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 8087868768772687932, guid: 31be901c4b707894a9de50493ff2847b, type: 3}
@@ -204,6 +231,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 3, y: 2}
   - <Name>k__BackingField: Lumber Mill
     <ID>k__BackingField: 27
+    <Category>k__BackingField: 2
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 4936181962585645816, guid: a2e36546f5f8c1942907f27be32d6249, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 561949680920387449, guid: 9d715ef4cfac27641bb54b5b7fbb2db0, type: 3}
@@ -211,6 +239,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 3, y: 2}
   - <Name>k__BackingField: Mine
     <ID>k__BackingField: 28
+    <Category>k__BackingField: 2
     <Base>k__BackingField: {fileID: 516780942162434497, guid: 7aeff54adb9e98440a7e7b9b9bafb719, type: 3}
     <LevelOnePrefab>k__BackingField: {fileID: 3140692140678716306, guid: 94a66a5503a389b4b879f421b3fa9919, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 1747243544898086312, guid: a98e3b3148e8f9a40a211419c6951e07, type: 3}
@@ -218,6 +247,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 3, y: 2}
   - <Name>k__BackingField: Orchard
     <ID>k__BackingField: 29
+    <Category>k__BackingField: 2
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 4578180370897481052, guid: bcff5f99afaede14fb447b25f6603e84, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 314576642921160357, guid: 9d51af9262ccec24d8de0bdc623c25ed, type: 3}
@@ -225,6 +255,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 3, y: 2}
   - <Name>k__BackingField: Ranch
     <ID>k__BackingField: 30
+    <Category>k__BackingField: 2
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 744733738076377900, guid: 62e15bb994a0362428853f01315036ad, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 2287845273830915275, guid: eaafb275a23b5fb40867fdbeb90f5186, type: 3}
@@ -232,6 +263,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 3, y: 2}
   - <Name>k__BackingField: Refinery
     <ID>k__BackingField: 31
+    <Category>k__BackingField: 2
     <Base>k__BackingField: {fileID: 1094180042009079784, guid: 719a5ee686cf05846b9fc2999b274091, type: 3}
     <LevelOnePrefab>k__BackingField: {fileID: 2820095553412381131, guid: 339c9558656f6b447853c9aca00f3559, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 874330827207310882, guid: b7745220e5bfb8341b79c42008428fe8, type: 3}
@@ -239,6 +271,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 3, y: 2}
   - <Name>k__BackingField: School
     <ID>k__BackingField: 32
+    <Category>k__BackingField: 2
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 9133586985093370695, guid: 2c2a1874059b2b345bfc4cdcac84392d, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 3373173570523134468, guid: 09238e079fb53684bbaa0e3c229a519b, type: 3}
@@ -246,6 +279,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 2, y: 2}
   - <Name>k__BackingField: Stables
     <ID>k__BackingField: 33
+    <Category>k__BackingField: 2
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 7012768145472348718, guid: 8573ed98e4bbf8545b0777afbd946c11, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 5005262204558333854, guid: 2c13743c209b48f4a8270856bfd483dd, type: 3}
@@ -253,6 +287,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 3, y: 2}
   - <Name>k__BackingField: Tailor
     <ID>k__BackingField: 34
+    <Category>k__BackingField: 2
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 4947423506471489619, guid: d4777c73d9e87e748a872fbe6e570a96, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 8305381098139165198, guid: 2fda7e455b334f749992daab89af7f0b, type: 3}
@@ -260,6 +295,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 3, y: 2}
   - <Name>k__BackingField: Warehouse
     <ID>k__BackingField: 35
+    <Category>k__BackingField: 2
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 3665153952504698274, guid: ee1dc93b260d02247b4a2f8df2a23b8e, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 3910747466724645413, guid: 0ae8f7e1563522a409488a368e389c05, type: 3}
@@ -267,6 +303,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 2, y: 2}
   - <Name>k__BackingField: Windmill
     <ID>k__BackingField: 36
+    <Category>k__BackingField: 2
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 3864553573347271543, guid: e91b1ebaf167c7a438530243a9fb351e, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 7840300746175050572, guid: cb2a5a112c6a8b34092fddaea0b86286, type: 3}
@@ -274,6 +311,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 2, y: 2}
   - <Name>k__BackingField: Workshop
     <ID>k__BackingField: 37
+    <Category>k__BackingField: 2
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 8593221411119247391, guid: b0f268f84a47fef47aec4b2582c60339, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 831392995314913493, guid: a5096815700d778478bb1e2874d2aa0b, type: 3}
@@ -281,6 +319,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 3, y: 2}
   - <Name>k__BackingField: Market
     <ID>k__BackingField: 38
+    <Category>k__BackingField: 2
     <Base>k__BackingField: {fileID: 7351425040882779996, guid: 6019550a11897494d85309143dacdcb4, type: 3}
     <LevelOnePrefab>k__BackingField: {fileID: 7351425040882779996, guid: dc2a2091d9cf15548b8c527fc5ee64df, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 1563977444598131247, guid: fc16d96d5f6b9c945ad8d3e0f2656ede, type: 3}
@@ -288,6 +327,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 3, y: 3}
   - <Name>k__BackingField: Well
     <ID>k__BackingField: 39
+    <Category>k__BackingField: 3
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 3449225132477630280, guid: 1aa50b140496fb34589755328d8666db, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 0}
@@ -295,6 +335,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
   - <Name>k__BackingField: Bell
     <ID>k__BackingField: 40
+    <Category>k__BackingField: 3
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 4019490179754366493, guid: 53bd68ec880495a42934b282eb375a5a, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 0}
@@ -302,6 +343,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
   - <Name>k__BackingField: Lamp
     <ID>k__BackingField: 41
+    <Category>k__BackingField: 3
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 7649113433560302528, guid: d2a2106633662e24ba4d8e6bfbe8fff4, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 0}
@@ -309,6 +351,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
   - <Name>k__BackingField: Fountain
     <ID>k__BackingField: 42
+    <Category>k__BackingField: 3
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 0}
     <LevelTwoPrefab>k__BackingField: {fileID: 0}
@@ -316,6 +359,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 2, y: 2}
   - <Name>k__BackingField: Flower Side
     <ID>k__BackingField: 43
+    <Category>k__BackingField: 4
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 3860277353339235635, guid: 57a9b6f4a53b1a74fb6dd0e44b07f307, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 0}
@@ -323,6 +367,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
   - <Name>k__BackingField: Flower Straight
     <ID>k__BackingField: 44
+    <Category>k__BackingField: 4
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 2975097274801468382, guid: 6e0dc98bab5ecb44982546876fd7987f, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 0}
@@ -330,6 +375,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
   - <Name>k__BackingField: Bench Straight
     <ID>k__BackingField: 45
+    <Category>k__BackingField: 4
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 2729559649359429649, guid: 2fae937a58d5bba4ca98b96797b68be8, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 0}
@@ -337,6 +383,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
   - <Name>k__BackingField: Bench Left
     <ID>k__BackingField: 46
+    <Category>k__BackingField: 4
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 6488476102934428610, guid: c729e1ca9f794d64097da966305f410b, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 0}
@@ -344,6 +391,7 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
   - <Name>k__BackingField: Bench Back
     <ID>k__BackingField: 47
+    <Category>k__BackingField: 4
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 5132574381491330655, guid: a0995a8f427e4a6479fd035503e5b199, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 0}
@@ -351,8 +399,25 @@ MonoBehaviour:
     <Size>k__BackingField: {x: 1, y: 1}
   - <Name>k__BackingField: Bench Right
     <ID>k__BackingField: 48
+    <Category>k__BackingField: 4
     <Base>k__BackingField: {fileID: 0}
     <LevelOnePrefab>k__BackingField: {fileID: 1255515974602757327, guid: dd4123a79b578bb4ebdc2b86e019084f, type: 3}
+    <LevelTwoPrefab>k__BackingField: {fileID: 0}
+    <LevelThreePrefab>k__BackingField: {fileID: 0}
+    <Size>k__BackingField: {x: 1, y: 1}
+  - <Name>k__BackingField: Fire
+    <ID>k__BackingField: 49
+    <Category>k__BackingField: 3
+    <Base>k__BackingField: {fileID: 0}
+    <LevelOnePrefab>k__BackingField: {fileID: 5137013804339283414, guid: 11222271eaba33e47a96361e64b439ee, type: 3}
+    <LevelTwoPrefab>k__BackingField: {fileID: 0}
+    <LevelThreePrefab>k__BackingField: {fileID: 0}
+    <Size>k__BackingField: {x: 1, y: 1}
+  - <Name>k__BackingField: Fountain
+    <ID>k__BackingField: 50
+    <Category>k__BackingField: 3
+    <Base>k__BackingField: {fileID: 0}
+    <LevelOnePrefab>k__BackingField: {fileID: 7026818179156976506, guid: ead37f5dfcfdad9429f75cd3accfaf96, type: 3}
     <LevelTwoPrefab>k__BackingField: {fileID: 0}
     <LevelThreePrefab>k__BackingField: {fileID: 0}
     <Size>k__BackingField: {x: 1, y: 1}

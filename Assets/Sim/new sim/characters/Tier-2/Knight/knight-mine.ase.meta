@@ -129,9 +129,9 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 36
-      width: 20
-      height: 23
+      y: 4
+      width: 32
+      height: 32
     spriteID: d690e8d401517934097fb8e020185efc
     spriteBone: []
     spriteOutline: []
@@ -140,7 +140,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 36}
+    uvTransform: {x: 4, y: 4}
   - name: Frame_1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -149,9 +149,9 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 4
-      width: 25
-      height: 24
+      y: 44
+      width: 32
+      height: 32
     spriteID: a9e99bca2606efc4a891fc5b7aea8757
     spriteBone: []
     spriteOutline: []
@@ -160,7 +160,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: 4, y: 44}
   - name: Frame_2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -168,10 +168,10 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 37
-      y: 4
-      width: 21
-      height: 24
+      x: 4
+      y: 84
+      width: 32
+      height: 32
     spriteID: 5774849a19be5a0428aa726ea918d736
     spriteBone: []
     spriteOutline: []
@@ -180,7 +180,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 37, y: 4}
+    uvTransform: {x: 4, y: 84}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -194,10 +194,10 @@ ScriptedImporter:
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 2
-        y: 2
-        width: 20
-        height: 23
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       spriteId: d690e8d401517934097fb8e020185efc
     - name: Frame_1
       frameIndex: 1
@@ -205,17 +205,17 @@ ScriptedImporter:
       cellRect:
         x: 0
         y: 0
-        width: 25
-        height: 24
+        width: 32
+        height: 32
       spriteId: a9e99bca2606efc4a891fc5b7aea8757
     - name: Frame_2
       frameIndex: 2
       additiveSortOrder: 0
       cellRect:
         x: 0
-        y: 1
-        width: 21
-        height: 24
+        y: 0
+        width: 32
+        height: 32
       spriteId: 5774849a19be5a0428aa726ea918d736
     linkedCells: []
     parentIndex: -1
@@ -295,4 +295,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 25, y: 25}
+  canvasSize: {x: 32, y: 32}

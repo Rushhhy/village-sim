@@ -17,6 +17,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: d2399c8c4e65a7a449f037135a2f02c1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1976219775448804296, guid: 3999125f3b8cc474db77799f93d76f84, type: 3}
+    - target: {fileID: 3626916397498700004, guid: d2399c8c4e65a7a449f037135a2f02c1, type: 3}
       propertyPath: m_SortingLayer
       value: 4
       objectReference: {fileID: 0}
@@ -30,11 +34,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: d2399c8c4e65a7a449f037135a2f02c1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: d2399c8c4e65a7a449f037135a2f02c1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: d2399c8c4e65a7a449f037135a2f02c1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -79,5 +83,27 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: d2399c8c4e65a7a449f037135a2f02c1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 850136556978427984}
   m_SourcePrefab: {fileID: -8435245712485981826, guid: d2399c8c4e65a7a449f037135a2f02c1, type: 3}
+--- !u!1 &8262990998406731676 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2253911629886400664, guid: d2399c8c4e65a7a449f037135a2f02c1, type: 3}
+  m_PrefabInstance: {fileID: 1302795766333915380}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &850136556978427984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8262990998406731676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 747f73a4acf58e04d813dbb7494c46d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulseSpeed: 7
+  scaleAmplitude: 0.01

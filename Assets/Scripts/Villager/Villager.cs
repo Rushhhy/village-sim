@@ -15,11 +15,6 @@ public class Villager : MonoBehaviour, IIdleBehaviorTarget, IWorkBehaviorTarget,
     public int Index;
     public VillagerState currentState;
 
-    public bool IsValidationEnabled =>
-        currentState == VillagerState.Idle ||
-        workBehavior.GetCurrentWorkState() == WorkState.Transporting ||
-        workBehavior.GetCurrentWorkState() == WorkState.Logging;
-
     private PlacementSystem placementSystem;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private IdleBehavior idleBehavior;
@@ -86,11 +81,11 @@ public class Villager : MonoBehaviour, IIdleBehaviorTarget, IWorkBehaviorTarget,
         animator = GetComponent<Animator>();
         animator.runtimeAnimatorController = villagerData.villagerAnimatorController;
 
-        if (villagerData.horseIcon != null)
+        if (villagerData.tier == 2)
         {
             isCavalry = true;
         }
-        if (villagerData.range > 0)
+        if (villagerData.range > 1)
         {
             isRanged = true;
         }
@@ -119,142 +114,140 @@ public class Villager : MonoBehaviour, IIdleBehaviorTarget, IWorkBehaviorTarget,
 
     public void Housed(int houseIndex, int selectedSlot)
     {
+        if (placementSystem == null ||
+            placementSystem.placedGameObjects == null ||
+            houseIndex < 0 ||
+            houseIndex >= placementSystem.placedGameObjects.Count ||
+            placementSystem.placedGameObjects[houseIndex] == null)
+        {
+            Debug.LogError($"Invalid house index {houseIndex} for villager {gameObject.name}");
+            return;
+        }
+
+        GameObject houseObject = placementSystem.placedGameObjects[houseIndex];
+
         assignedHouseIndex = houseIndex;
         assignedHouseSlot = selectedSlot;
         isHoused = true;
 
-        // Set idle start position
-        Vector3 housePosition = placementSystem.placedGameObjects[houseIndex].transform.position;
-        idleBehavior.SetIdleStartPosition(housePosition);
+        Vector3 housePosition = houseObject.transform.position;
 
-        // Only start idling if not employed
-        if (!isEmployed)
+        if (idleBehavior != null)
         {
-            currentState = VillagerState.Idle;
-            idleBehavior.StartIdling();
+            idleBehavior.SetIdleStartPosition(housePosition);
         }
 
-        // REMOVED: Force position validation check after housing
+        if (!isEmployed)
+        {
+            UpdateState();
+
+            if (idleBehavior != null)
+            {
+                idleBehavior.StartIdling();
+            }
+        }
+        else
+        {
+            UpdateState();
+        }
     }
 
     public void Employed(int buildingIndex, int selectedSlot)
     {
-        // Stop idling when employed
-        if (idleBehavior != null && idleBehavior.IsIdling)
+        if (workBehavior == null)
         {
-            idleBehavior.StopIdling();
+            Debug.LogError($"WorkBehavior component not found on villager {gameObject.name}");
+            return;
         }
 
-        // Set employment data
-        assignedBuildingIndex = buildingIndex;
-        assignedBuildingSlot = selectedSlot;
-        isEmployed = true;
-        currentState = VillagerState.Working;
+        if (placementSystem == null ||
+            placementSystem.placedGameObjects == null ||
+            buildingIndex < 0 ||
+            buildingIndex >= placementSystem.placedGameObjects.Count ||
+            placementSystem.placedGameObjects[buildingIndex] == null)
+        {
+            Debug.LogError($"Invalid building index {buildingIndex} for villager {gameObject.name}");
+            return;
+        }
 
-        // Get building information
-        Building building = placementSystem.placedGameObjects[assignedBuildingIndex].GetComponent<Building>();
+        GameObject buildingObject = placementSystem.placedGameObjects[buildingIndex];
+        Building building = buildingObject.GetComponent<Building>();
+
         if (building == null)
         {
             Debug.LogError($"Building component not found on assigned building for villager {gameObject.name}");
             return;
         }
 
-        assignedBuildingID = building.ID;
-        assignedBuildingPosition = placementSystem.placedGameObjects[buildingIndex].transform.position;
+        if (idleBehavior != null && idleBehavior.IsIdling)
+        {
+            idleBehavior.StopIdling();
+        }
 
-        // Get work positions from the building
+        assignedBuildingIndex = buildingIndex;
+        assignedBuildingSlot = selectedSlot;
+        assignedBuildingID = building.ID;
+        assignedBuildingPosition = buildingObject.transform.position;
+
+        isEmployed = true;
+
         List<Vector3> workPositions = GetWorkPositionsFromBuilding(building);
 
-        // Move villager to building position BEFORE starting work behavior
-        // This ensures the villager is at the correct location when work behavior starts
-        transform.position = assignedBuildingPosition;
+        workBehavior.InitializeWork(
+            assignedBuildingID,
+            assignedBuildingPosition,
+            workPositions
+        );
 
-        // Set work behavior building position and start working
-        if (workBehavior != null)
-        {
-            workBehavior.SetBuildingPos(assignedBuildingPosition);
-
-            // Wait one frame to ensure position is set before starting work
-            StartCoroutine(StartWorkingDelayed(assignedBuildingID, assignedBuildingPosition, workPositions));
-        }
-        else
-        {
-            Debug.LogError($"WorkBehavior component not found on villager {gameObject.name}");
-        }
-
-        // REMOVED: Validate position after employment
-    }
-
-    /// <summary>
-    /// Starts working after a one-frame delay to ensure position is properly set
-    /// </summary>
-    private IEnumerator StartWorkingDelayed(int buildingID, Vector3 buildingPosition, List<Vector3> workPositions)
-    {
-        yield return null; // Wait one frame
-
-        Debug.Log($"Starting work behavior for villager {gameObject.name} - Building ID: {buildingID}");
-        workBehavior.StartWorking(buildingID, buildingPosition, workPositions);
+        UpdateState();
     }
 
     public void Unemploy()
     {
-        // Stop work behavior first
-        if (workBehavior != null && isEmployed)
+        if (workBehavior != null)
         {
-            // You might want to add a StopWorking() method to WorkBehavior for cleaner shutdown
+            workBehavior.StopWorking();
             workBehavior.SetBuildingPos(Vector3.zero);
         }
 
-        // Clear employment data
         assignedBuildingIndex = -1;
         assignedBuildingSlot = -1;
         assignedBuildingID = -1;
         assignedBuildingPosition = Vector3.zero;
         isEmployed = false;
-        workBehavior.StopWorking();
 
-        // Transition back to idle state if housed
         if (isHoused)
         {
-            currentState = VillagerState.Idle;
+            UpdateState();
 
-            // Set idle position to current position and start idling
             if (idleBehavior != null)
             {
                 idleBehavior.SetIdleStartPosition(transform.position);
                 idleBehavior.StartIdling();
             }
         }
-        else
-        {
-            // If not housed, go to base state
-            currentState = VillagerState.Base;
-        }
-
-        // REMOVED: Validate position after state change
+        UpdateState();
     }
 
     public void RemoveFromVillage()
     {
-        // Stop all behaviors
         if (idleBehavior != null)
         {
             idleBehavior.StopIdling();
         }
 
-        if (workBehavior != null && isEmployed)
+        if (workBehavior != null)
         {
             workBehavior.StopWorking();
         }
 
-        // Reset all state
-        currentState = VillagerState.Base;
         assignedBuildingIndex = -1;
         assignedHouseIndex = -1;
         assignedBuildingSlot = -1;
         assignedHouseSlot = -1;
         assignedBuildingID = -1;
         assignedBuildingPosition = Vector3.zero;
+
         isHoused = false;
         isEmployed = false;
 
@@ -265,18 +258,55 @@ public class Villager : MonoBehaviour, IIdleBehaviorTarget, IWorkBehaviorTarget,
             idleBehavior.SetIdleStartPosition(transform.position);
         }
 
-        if (workBehavior != null)
-        {
-            workBehavior.SetBuildingPos(transform.position);
-        }
+        UpdateState();
     }
 
     private List<Vector3> GetWorkPositionsFromBuilding(Building building)
     {
-        // If Building has a workPositions field
-        if (building.workPositions != null)
-            return building.workPositions;
-        else
+        if (building == null || building.workPositions == null)
+        {
             return new List<Vector3>();
+        }
+
+        return building.workPositions;
+    }
+
+    public bool IsValidationEnabled
+    {
+        get
+        {
+            if (currentState == VillagerState.Idle)
+                return true;
+
+            if (!isEmployed || workBehavior == null)
+                return false;
+
+            WorkState state = workBehavior.GetCurrentWorkState();
+
+            return state == WorkState.Transporting ||
+                   state == WorkState.Logging;
+        }
+    }
+    private void UpdateState()
+    {
+        if (isEmployed)
+        {
+            currentState = VillagerState.Working;
+        }
+        else if (isHoused)
+        {
+            currentState = VillagerState.Idle;
+        }
+        else
+        {
+            currentState = VillagerState.Base;
+        }
+    }
+    public int GetStars()
+    {
+        int baseStars = villagerData != null ? villagerData.tier : 1;
+        int upgradeStars = upgradePoints / 5;
+
+        return Mathf.Clamp(baseStars + upgradeStars, 1, 5);
     }
 }

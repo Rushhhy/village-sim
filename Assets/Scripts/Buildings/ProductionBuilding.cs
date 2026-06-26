@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using Unity.Burst;
 using UnityEngine;
 
 public class ProductionBuilding : Building
@@ -13,8 +11,8 @@ public class ProductionBuilding : Building
     public int[] ProducedResourcesAmount { get; protected set; }
 
     public float[] ResourceProductionTime { get; protected set; }
-    
-    public float[] ProductionPerSec {  get; protected set; }
+
+    public float[] ProductionPerSec { get; protected set; }
     public float[] ConsumptionPerSec { get; protected set; }
 
     public float[] individualTimers { get; protected set; }
@@ -22,34 +20,33 @@ public class ProductionBuilding : Building
     protected ResourceManager resourceManager;
     protected ProductionRegistryManager productionRegistryManager;
 
-    protected int[] inputMethodBase, inputMethodOne, inputMethodTwo, inputMethodThree;
-    protected int[] outputMethodBase, outputMethodOne, outputMethodTwo, outputMethodThree;
+    protected int[] inputMethodBase;
+    protected int[] inputMethodOne;
+    protected int[] inputMethodTwo;
+    protected int[] inputMethodThree;
+
+    protected int[] outputMethodBase;
+    protected int[] outputMethodOne;
+    protected int[] outputMethodTwo;
+    protected int[] outputMethodThree;
 
     private int numVillagersAssigned = 0;
 
+    [SerializeField] private ResourceSO resources;
     protected override void Awake()
     {
         base.Awake();
 
-        ProductionSpeedLevel = new int[] { 1, 1 };
-        individualTimers = new float[2];
-
-        InitializeProduction();
+        ProductionSpeedLevel = new[] { 1, 1 };
 
         resourceManager = GameObject.Find("ResourceManager").GetComponent<ResourceManager>();
         productionRegistryManager = GameObject.Find("ProductionRegistryManager").GetComponent<ProductionRegistryManager>();
     }
 
-    public void InitializeProduction()
+    protected void Start()
     {
-        if (NeededResourcesAmount == null)
-        {
-            NeededResourcesAmount = inputMethodBase;
-        }
-        if (ProducedResourcesAmount == null)
-        {
-            ProducedResourcesAmount = outputMethodBase;
-        }
+        InitializeProduction();
+        EnsureTimerArrayMatchesOutputs();
     }
 
     protected override void Update()
@@ -58,58 +55,54 @@ public class ProductionBuilding : Building
         ProduceResource();
     }
 
+
+    public void InitializeProduction()
+    {
+        if (NeededResourcesAmount == null)
+        {
+            NeededResourcesAmount = inputMethodBase;
+        }
+
+        if (ProducedResourcesAmount == null)
+        {
+            ProducedResourcesAmount = outputMethodBase;
+        }
+    }
+
     protected void ProduceResource()
     {
-        if (ProducedResourcesID == null || ResourceProductionTime == null || ProducedResourcesAmount == null)
+        if (ProducedResourcesID == null || ProducedResourcesAmount == null || ResourceProductionTime == null)
+        {
             return;
+        }
 
         if (State != BuildingState.Active)
+        {
             return;
+        }
 
         if (numVillagersAssigned == 0)
+        {
             return;
+        }
+
+        EnsureTimerArrayMatchesOutputs();
 
         for (int i = 0; i < ProducedResourcesID.Length; i++)
         {
             individualTimers[i] += Time.deltaTime;
 
-            if (individualTimers[i] < ResourceProductionTime[i])
+            float productionTime = GetProductionTimeForIndex(i);
+
+            if (individualTimers[i] < productionTime)
+            {
                 continue;
-
-            // Reset per iteration
-            bool canProduceNow = true;
-
-            if (NeededResourcesID != null && NeededResourcesAmount != null && NeededResourcesID.Length > 0)
-            {
-                for (int j = 0; j < NeededResourcesID.Length; j++)
-                {
-                    if (NeededResourcesAmount[j] > resourceManager.resourceTotals[NeededResourcesID[j]])
-                    {
-                        canProduceNow = false;
-                        break;
-                    }
-                }
-
-                if (canProduceNow)
-                {
-                    for (int j = 0; j < NeededResourcesID.Length; j++)
-                    {
-                        resourceManager.resourceTotals[NeededResourcesID[j]] -= NeededResourcesAmount[j];
-                        productionRegistryManager.UpdateTotalOfResourceWithID(NeededResourcesID[j]);
-                    }
-                    if (ProductionType == 3)
-                    {
-                        resourceManager.resourceTotals[NeededResourcesID[0]] += 1;
-                        productionRegistryManager.UpdateTotalOfResourceWithID(NeededResourcesID[0]);
-                    }
-                    resourceManager.resourceTotals[ProducedResourcesID[i]] += ProducedResourcesAmount[i];
-                    productionRegistryManager.UpdateTotalOfResourceWithID(ProducedResourcesAmount[i]);
-                }
             }
-            else
+
+            if (CanProduce(i))
             {
-                resourceManager.resourceTotals[ProducedResourcesID[i]] += ProducedResourcesAmount[i];
-                productionRegistryManager.UpdateTotalOfResourceWithID(ProducedResourcesID[i]);
+                ConsumeNeededResourcesIfAny();
+                ProduceOutputResource(i);
             }
 
             individualTimers[i] = 0f;
@@ -147,89 +140,255 @@ public class ProductionBuilding : Building
                 break;
         }
 
+        EnsureTimerArrayMatchesOutputs();
         UpdateProductionMethodRates();
-
         buildingRegistryManager.UpdateProductionMethodsUI(this);
-    }
-
-    private void ResetProductionRates()
-    {
-        // Mine/Ranch producton type
-        if (ResourceProductionTime.Length > 1)
-        {
-            for (int i = 0; i < ResourceProductionTime.Length; i++)
-            {
-                resourceManager.resourceConsumptionTotals[NeededResourcesID[i]] -= ((float)NeededResourcesAmount[i] / ResourceProductionTime[i]);
-                resourceManager.resourceProductionTotals[ProducedResourcesID[i]] -= ((float)ProducedResourcesAmount[i] / ResourceProductionTime[i]);
-            }
-        }
-        // Default production type
-        else
-        {
-            for (int i = 0; i < NeededResourcesID.Length; i++)
-            {
-                resourceManager.resourceConsumptionTotals[NeededResourcesID[i]] -= ((float)NeededResourcesAmount[i] / ResourceProductionTime[0]);
-            }
-            for (int i = 0; i < ProducedResourcesID.Length; i++)
-            {
-                resourceManager.resourceProductionTotals[ProducedResourcesID[i]] -= ((float)ProducedResourcesAmount[i] / ResourceProductionTime[0]);
-            }
-        }
-    }
-
-    private void UpdateProductionMethodRates()
-    {
-        // Mine/Ranch producton type
-        if (ResourceProductionTime.Length > 1)
-        {
-            for (int i = 0; i < ResourceProductionTime.Length; i++)
-            {
-                resourceManager.resourceConsumptionTotals[NeededResourcesID[i]] += ((float)NeededResourcesAmount[i] / ResourceProductionTime[i]);
-                productionRegistryManager.UpdateConsumptionRateOfResourceWithID(NeededResourcesID[i]);
-                resourceManager.resourceProductionTotals[ProducedResourcesID[i]] += ((float)ProducedResourcesAmount[i] / ResourceProductionTime[i]);
-                productionRegistryManager.UpdateProductionRateOfResourceWithID(ProducedResourcesID[i]);
-            }
-        }
-        // Default production type
-        else
-        {
-            for (int i = 0; i < NeededResourcesID.Length; i++)
-            {
-                resourceManager.resourceConsumptionTotals[NeededResourcesID[i]] += ((float)NeededResourcesAmount[i] / ResourceProductionTime[0]);
-                productionRegistryManager.UpdateConsumptionRateOfResourceWithID(NeededResourcesID[i]);
-            }
-            for (int i = 0; i < ProducedResourcesID.Length; i++)
-            {
-                resourceManager.resourceProductionTotals[ProducedResourcesID[i]] += ((float)ProducedResourcesAmount[i] / ResourceProductionTime[0]);
-                productionRegistryManager.UpdateProductionRateOfResourceWithID(ProducedResourcesID[i]);
-            }
-        }
     }
 
     public void UpgradeProductionSpeed(int productionIndex)
     {
+        if (ResourceProductionTime == null || productionIndex < 0 || productionIndex >= ResourceProductionTime.Length)
+        {
+            return;
+        }
+
         ResetProductionRates();
         ProductionSpeedLevel[productionIndex]++;
-        ResourceProductionTime[productionIndex] *= 0.99f; // 1% faster
+        ResourceProductionTime[productionIndex] *= 0.99f;
         UpdateProductionMethodRates();
     }
 
     public override void UpgradeBuilding()
     {
-        base.UpgradeBuilding();     
+        base.UpgradeBuilding();
     }
 
     public override void AssignVillagerToSlot(int slot, Villager villager)
     {
         base.AssignVillagerToSlot(slot, villager);
-        numVillagersAssigned += 1;
+        numVillagersAssigned++;
         UpdateProductionMethod();
     }
 
     public override void RemoveVillagerFromSlot(int slot)
     {
         base.RemoveVillagerFromSlot(slot);
-        numVillagersAssigned -= 1;
+        numVillagersAssigned--;
         UpdateProductionMethod();
     }
+
+    private bool CanProduce(int outputIndex)
+    {
+        bool enoughInputs = HasEnoughInputs();
+        bool enoughCapacity = HasEnoughCapacityForOutput(outputIndex);
+
+        Debug.Log($"[TEST] CanProduce check on {gameObject.name} | enoughInputs={enoughInputs} | enoughCapacity={enoughCapacity}");
+
+        if (!enoughInputs)
+        {
+            return false;
+        }
+
+        return enoughCapacity;
+    }
+
+    private bool HasEnoughInputs()
+    {
+        if (NeededResourcesID == null || NeededResourcesAmount == null || NeededResourcesID.Length == 0)
+        {
+            return true;
+        }
+
+        for (int i = 0; i < NeededResourcesID.Length; i++)
+        {
+            if (NeededResourcesAmount[i] > resourceManager.resourceTotals[NeededResourcesID[i]])
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private bool HasEnoughCapacityForOutput(int outputIndex)
+    {
+        if (ProducedResourcesID == null || ProducedResourcesAmount == null)
+        {
+            Debug.Log("[TEST] Produced resource arrays are null");
+            return false;
+        }
+
+        if (outputIndex < 0 || outputIndex >= ProducedResourcesID.Length || outputIndex >= ProducedResourcesAmount.Length)
+        {
+            Debug.Log("[TEST] Output index out of range");
+            return false;
+        }
+
+        int producedAmount = ProducedResourcesAmount[outputIndex];
+        bool canStore = resourceManager.CanStoreAmount(producedAmount);
+
+        Debug.Log($"[TEST] Capacity check on {gameObject.name} | amount={producedAmount} | used={resourceManager.GetUsedCapacity()} | max={resourceManager.GetMaxCapacity()} | canStore={canStore}");
+
+        return canStore;
+    }
+
+    private void ConsumeNeededResourcesIfAny()
+    {
+        if (NeededResourcesID == null || NeededResourcesAmount == null || NeededResourcesID.Length == 0)
+        {
+            return;
+        }
+
+        for (int i = 0; i < NeededResourcesID.Length; i++)
+        {
+            resourceManager.resourceTotals[NeededResourcesID[i]] -= NeededResourcesAmount[i];
+            productionRegistryManager.UpdateTotalOfResourceWithID(NeededResourcesID[i]);
+        }
+
+        if (ProductionType == 3 && NeededResourcesID.Length > 0)
+        {
+            resourceManager.resourceTotals[NeededResourcesID[0]] += 1;
+            productionRegistryManager.UpdateTotalOfResourceWithID(NeededResourcesID[0]);
+        }
+
+        buildingRegistryManager.RefreshAllWarehouseOverviews();
+    }
+
+    private void ProduceOutputResource(int outputIndex)
+    {
+        int resourceID = ProducedResourcesID[outputIndex];
+        int amount = ProducedResourcesAmount[outputIndex];
+
+        bool added = resourceManager.TryAddResource(resourceID, amount);
+
+        if (!added)
+        {
+            Debug.LogWarning($"[POPUP] Resource add failed on {gameObject.name}. ResourceID={resourceID}, Amount={amount}");
+            return;
+        }
+
+        productionRegistryManager.UpdateTotalOfResourceWithID(resourceID);
+        buildingRegistryManager.RefreshAllWarehouseOverviews();
+
+        if (resources == null || resources.resourcesData == null || resourceID < 0 || resourceID >= resources.resourcesData.Count)
+        {
+            Debug.LogWarning($"[POPUP] ResourceSO missing or invalid resourceID on {gameObject.name}. ResourceID={resourceID}");
+            return;
+        }
+
+        Sprite producedIcon = resources.resourcesData[resourceID].Icon;
+
+        if (producedIcon == null)
+        {
+            Debug.LogWarning($"[POPUP] Produced icon is null on {gameObject.name}. ResourceID={resourceID}");
+            return;
+        }
+
+        Vector3 popupPosition = GetResourcePopupPosition() + new Vector3(outputIndex * 0.4f, 0f, 0f);
+
+        Debug.Log($"[POPUP] Spawning popup on {gameObject.name} at {popupPosition} for resourceID={resourceID}");
+
+        ShowProducedResourcePopup(producedIcon, popupPosition);
+    }
+
+    private void ResetProductionRates()
+    {
+        if (ResourceProductionTime == null)
+        {
+            return;
+        }
+
+        if (NeededResourcesID != null && NeededResourcesAmount != null)
+        {
+            for (int i = 0; i < NeededResourcesID.Length; i++)
+            {
+                float productionTime = GetProductionTimeForIndex(i);
+                resourceManager.resourceConsumptionTotals[NeededResourcesID[i]] -=
+                    (float)NeededResourcesAmount[i] / productionTime;
+            }
+        }
+
+        if (ProducedResourcesID != null && ProducedResourcesAmount != null)
+        {
+            for (int i = 0; i < ProducedResourcesID.Length; i++)
+            {
+                float productionTime = GetProductionTimeForIndex(i);
+                resourceManager.resourceProductionTotals[ProducedResourcesID[i]] -=
+                    (float)ProducedResourcesAmount[i] / productionTime;
+            }
+        }
+    }
+
+    private void UpdateProductionMethodRates()
+    {
+        if (ResourceProductionTime == null)
+        {
+            return;
+        }
+
+        if (NeededResourcesID != null && NeededResourcesAmount != null)
+        {
+            for (int i = 0; i < NeededResourcesID.Length; i++)
+            {
+                float productionTime = GetProductionTimeForIndex(i);
+
+                resourceManager.resourceConsumptionTotals[NeededResourcesID[i]] +=
+                    (float)NeededResourcesAmount[i] / productionTime;
+
+                productionRegistryManager.UpdateConsumptionRateOfResourceWithID(NeededResourcesID[i]);
+            }
+        }
+
+        if (ProducedResourcesID != null && ProducedResourcesAmount != null)
+        {
+            for (int i = 0; i < ProducedResourcesID.Length; i++)
+            {
+                float productionTime = GetProductionTimeForIndex(i);
+
+                resourceManager.resourceProductionTotals[ProducedResourcesID[i]] +=
+                    (float)ProducedResourcesAmount[i] / productionTime;
+
+                productionRegistryManager.UpdateProductionRateOfResourceWithID(ProducedResourcesID[i]);
+            }
+        }
+    }
+
+    private float GetProductionTimeForIndex(int index)
+    {
+        if (ResourceProductionTime == null || ResourceProductionTime.Length == 0)
+        {
+            return 1f;
+        }
+
+        if (ResourceProductionTime.Length == 1)
+        {
+            return Mathf.Max(0.01f, ResourceProductionTime[0]);
+        }
+
+        int safeIndex = Mathf.Clamp(index, 0, ResourceProductionTime.Length - 1);
+        return Mathf.Max(0.01f, ResourceProductionTime[safeIndex]);
+    }
+
+    private void EnsureTimerArrayMatchesOutputs()
+    {
+        int outputCount = ProducedResourcesID != null && ProducedResourcesID.Length > 0
+            ? ProducedResourcesID.Length
+            : 1;
+
+        if (individualTimers == null || individualTimers.Length != outputCount)
+        {
+            individualTimers = new float[outputCount];
+        }
+    }
+    private Vector3 GetResourcePopupPosition()
+    {
+        return width switch
+        {
+            4 => transform.position + new Vector3(0f, 2f, 0f),
+            3 => transform.position + new Vector3(1f, 1.8f, 0f),
+            2 => transform.position + new Vector3(0.5f, 1.5f, 0f),
+            _ => transform.position + new Vector3(0.5f, 1.5f, 0f)
+        };
+    }
+
 }

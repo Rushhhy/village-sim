@@ -6,207 +6,172 @@ public class RoadManager : MonoBehaviour
 {
     [SerializeField] private PlacementSystem placementSystem;
 
-    // Road type constants for better readability
+    // Road types
     private const int VERTICAL_ROAD = 0;
     private const int HORIZONTAL_ROAD_LEFT = 1;
     private const int HORIZONTAL_ROAD_RIGHT = 2;
+
     private const int DEAD_END_UP = 3;
     private const int DEAD_END_DOWN = 4;
     private const int DEAD_END_LEFT = 5;
     private const int DEAD_END_RIGHT = 6;
+
     private const int CORNER_TOP_RIGHT = 7;
     private const int CORNER_BOTTOM_RIGHT = 8;
     private const int CORNER_BOTTOM_LEFT = 9;
     private const int CORNER_TOP_LEFT = 10;
+
     private const int THREE_WAY_TOP_RIGHT_LEFT = 11;
     private const int THREE_WAY_BOTTOM_RIGHT_LEFT = 12;
     private const int THREE_WAY_TOP_RIGHT_BOTTOM = 13;
     private const int THREE_WAY_TOP_LEFT_BOTTOM = 14;
+
     private const int FOUR_WAY_INTERSECTION = 15;
 
-    // Direction indices for neighbor array
     private const int RIGHT = 0;
     private const int LEFT = 1;
     private const int TOP = 2;
     private const int BOTTOM = 3;
 
-    public void FixRoadAt(Vector3Int position, bool[] neighbourRoads)
+    public void FixRoadAt(Vector3Int position, bool[] neighbours)
     {
-        int roadCount = CountConnectedRoads(neighbourRoads);
-        
-        switch (roadCount)
+        int count = CountConnectedRoads(neighbours);
+
+        switch (count)
         {
             case 0:
-                placementSystem.PlaceStructureAt(VERTICAL_ROAD, position);
+                Place(position, VERTICAL_ROAD);
                 break;
+
             case 1:
-                PlaceDeadEnd(neighbourRoads, position);
+                PlaceDeadEnd(neighbours, position);
                 break;
+
             case 2:
-                PlaceTwoWayRoad(neighbourRoads, position);
+                PlaceTwoWay(neighbours, position);
                 break;
+
             case 3:
-                PlaceThreeWay(neighbourRoads, position);
+                PlaceThreeWay(neighbours, position);
                 break;
+
             case 4:
-                placementSystem.PlaceStructureAt(FOUR_WAY_INTERSECTION, position);
+                Place(position, FOUR_WAY_INTERSECTION);
                 break;
         }
     }
 
-    private static int CountConnectedRoads(bool[] neighbourRoads)
+    private void Place(Vector3Int position, int roadType)
+    {
+        placementSystem.PlaceStructureAt(roadType, position);
+    }
+
+    private static int CountConnectedRoads(bool[] neighbours)
     {
         int count = 0;
-        for (int i = 0; i < neighbourRoads.Length; i++)
+        for (int i = 0; i < neighbours.Length; i++)
         {
-            if (neighbourRoads[i]) count++;
+            if (neighbours[i]) count++;
         }
         return count;
     }
 
-    private void PlaceTwoWayRoad(bool[] neighbourRoads, Vector3Int position)
+    private void PlaceTwoWay(bool[] n, Vector3Int pos)
     {
-        // Horizontal road (right and left)
-        if (neighbourRoads[RIGHT] && neighbourRoads[LEFT])
+        bool r = n[RIGHT];
+        bool l = n[LEFT];
+        bool t = n[TOP];
+        bool b = n[BOTTOM];
+
+        // Horizontal
+        if (r && l)
         {
-            // Choose horizontal road type based on position
-            int roadType = position.x < 0 ? HORIZONTAL_ROAD_LEFT : HORIZONTAL_ROAD_RIGHT;
-            placementSystem.PlaceStructureAt(roadType, position);
+            int type = pos.x < 0 ? HORIZONTAL_ROAD_LEFT : HORIZONTAL_ROAD_RIGHT;
+            Place(pos, type);
+            return;
         }
-        // Vertical road (top and bottom)
-        else if (neighbourRoads[TOP] && neighbourRoads[BOTTOM])
+
+        // Vertical
+        if (t && b)
         {
-            placementSystem.PlaceStructureAt(VERTICAL_ROAD, position);
+            Place(pos, VERTICAL_ROAD);
+            return;
         }
-        // Corner configurations
-        else
+
+        // Corner
+        PlaceCorner(n, pos);
+    }
+
+    private void PlaceThreeWay(bool[] n, Vector3Int pos)
+    {
+        bool r = n[RIGHT];
+        bool l = n[LEFT];
+        bool t = n[TOP];
+        bool b = n[BOTTOM];
+
+        if (t && r && l)
+            Place(pos, THREE_WAY_TOP_RIGHT_LEFT);
+        else if (t && r && b)
+            Place(pos, THREE_WAY_TOP_RIGHT_BOTTOM);
+        else if (t && l && b)
+            Place(pos, THREE_WAY_TOP_LEFT_BOTTOM);
+        else if (b && r && l)
+            Place(pos, THREE_WAY_BOTTOM_RIGHT_LEFT);
+    }
+
+    private void PlaceCorner(bool[] n, Vector3Int pos)
+    {
+        bool r = n[RIGHT];
+        bool l = n[LEFT];
+        bool t = n[TOP];
+        bool b = n[BOTTOM];
+
+        if (t && r)
+            Place(pos, CORNER_TOP_RIGHT);
+        else if (t && l)
+            Place(pos, CORNER_TOP_LEFT);
+        else if (b && r)
+            Place(pos, CORNER_BOTTOM_RIGHT);
+        else if (b && l)
+            Place(pos, CORNER_BOTTOM_LEFT);
+    }
+
+    private void PlaceDeadEnd(bool[] n, Vector3Int pos)
+    {
+        if (n[RIGHT])
+            Place(pos, DEAD_END_LEFT);
+        else if (n[LEFT])
+            Place(pos, DEAD_END_RIGHT);
+        else if (n[TOP])
+            Place(pos, DEAD_END_DOWN);
+        else if (n[BOTTOM])
+            Place(pos, DEAD_END_UP);
+    }
+
+    public void FixNeighbouringRoadsAt(IReadOnlyList<Vector3Int> positions)
+    {
+        foreach (var pos in positions)
         {
-            PlaceCorner(neighbourRoads, position);
+            placementSystem.RemoveStructureAt(pos);
+
+            var neighbours = placementSystem.gridData.GetNeighbouringRoads(pos);
+            FixRoadAt(pos, neighbours);
         }
     }
 
-    private void PlaceThreeWay(bool[] neighbourRoads, Vector3Int position)
+    public void FixNeighbouringRoadsAt(List<Vector3Int> positions)
     {
-        // Use bit pattern matching for cleaner logic
-        bool hasRight = neighbourRoads[RIGHT];
-        bool hasLeft = neighbourRoads[LEFT];
-        bool hasTop = neighbourRoads[TOP];
-        bool hasBottom = neighbourRoads[BOTTOM];
-
-        if (hasTop && hasRight && hasLeft)
-        {
-            placementSystem.PlaceStructureAt(THREE_WAY_TOP_RIGHT_LEFT, position);
-        }
-        else if (hasTop && hasRight && hasBottom)
-        {
-            placementSystem.PlaceStructureAt(THREE_WAY_TOP_RIGHT_BOTTOM, position);
-        }
-        else if (hasTop && hasLeft && hasBottom)
-        {
-            placementSystem.PlaceStructureAt(THREE_WAY_TOP_LEFT_BOTTOM, position);
-        }
-        else if (hasBottom && hasRight && hasLeft)
-        {
-            placementSystem.PlaceStructureAt(THREE_WAY_BOTTOM_RIGHT_LEFT, position);
-        }
+        FixNeighbouringRoadsAt((IReadOnlyList<Vector3Int>)positions);
     }
 
-    private void PlaceCorner(bool[] neighbourRoads, Vector3Int position)
-    {
-        bool hasRight = neighbourRoads[RIGHT];
-        bool hasLeft = neighbourRoads[LEFT];
-        bool hasTop = neighbourRoads[TOP];
-        bool hasBottom = neighbourRoads[BOTTOM];
-
-        if (hasTop && hasRight)
-        {
-            placementSystem.PlaceStructureAt(CORNER_TOP_RIGHT, position);
-        }
-        else if (hasTop && hasLeft)
-        {
-            placementSystem.PlaceStructureAt(CORNER_TOP_LEFT, position);
-        }
-        else if (hasBottom && hasRight)
-        {
-            placementSystem.PlaceStructureAt(CORNER_BOTTOM_RIGHT, position);
-        }
-        else if (hasBottom && hasLeft)
-        {
-            placementSystem.PlaceStructureAt(CORNER_BOTTOM_LEFT, position);
-        }
-    }
-
-    private void PlaceDeadEnd(bool[] neighbourRoads, Vector3Int position)
-    {
-        if (neighbourRoads[RIGHT])
-        {
-            placementSystem.PlaceStructureAt(DEAD_END_LEFT, position);
-        }
-        else if (neighbourRoads[LEFT])
-        {
-            placementSystem.PlaceStructureAt(DEAD_END_RIGHT, position);
-        }
-        else if (neighbourRoads[TOP])
-        {
-            placementSystem.PlaceStructureAt(DEAD_END_DOWN, position);
-        }
-        else if (neighbourRoads[BOTTOM])
-        {
-            placementSystem.PlaceStructureAt(DEAD_END_UP, position);
-        }
-    }
-
-    public void FixNeighbouringRoadsAt(IReadOnlyList<Vector3Int> neighbourPositions)
-    {
-        // Process each neighbor position
-        foreach (var neighbourPosition in neighbourPositions)
-        {
-            placementSystem.RemoveStructureAt(neighbourPosition);
-            var neighbourRoads = placementSystem.gridData.GetNeighbouringRoads(neighbourPosition);
-            FixRoadAt(neighbourPosition, neighbourRoads);
-        }
-    }
-
-    // Overload for backward compatibility with List<Vector3Int>
-    public void FixNeighbouringRoadsAt(List<Vector3Int> neighbourPositions)
-    {
-        FixNeighbouringRoadsAt((IReadOnlyList<Vector3Int>)neighbourPositions);
-    }
-
-    // Utility method for debugging road connections
     [System.Diagnostics.Conditional("UNITY_EDITOR")]
     public void LogRoadConnections(Vector3Int position)
     {
         var roads = placementSystem.gridData.GetNeighbouringRoads(position);
-        Debug.Log($"Road connections at {position}: Right={roads[RIGHT]}, Left={roads[LEFT]}, Top={roads[TOP]}, Bottom={roads[BOTTOM]}");
-    }
-}
 
-// Extension methods for better road type handling (optional)
-public static class RoadTypeExtensions
-{
-    public static bool IsDeadEnd(this int roadType)
-    {
-        return roadType >= 3 && roadType <= 6;
-    }
-
-    public static bool IsCorner(this int roadType)
-    {
-        return roadType >= 7 && roadType <= 10;
-    }
-
-    public static bool IsThreeWay(this int roadType)
-    {
-        return roadType >= 11 && roadType <= 14;
-    }
-
-    public static bool IsFourWay(this int roadType)
-    {
-        return roadType == 15;
-    }
-
-    public static bool IsStraight(this int roadType)
-    {
-        return roadType >= 0 && roadType <= 2;
+        Debug.Log(
+            $"Road connections at {position}: " +
+            $"R={roads[RIGHT]}, L={roads[LEFT]}, T={roads[TOP]}, B={roads[BOTTOM]}"
+        );
     }
 }

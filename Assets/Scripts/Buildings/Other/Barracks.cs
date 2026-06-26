@@ -16,20 +16,6 @@ public class Barracks : Building
     public override void UpgradeBuilding()
     {
         base.UpgradeBuilding();
-
-        if (Level == 1)
-        {
-            BuildingName = "Barracks LVL1";
-        }
-        if (Level == 2)
-        {
-            BuildingName = "Barracks LVL2";
-            workPositions = workPositionsTwo;
-        }
-        else if (Level == 3)
-        {
-            BuildingName = "Barracks LVL3";
-            workPositions = workPositionsThree;
-        }
+        SetBuildingNameByLevel("Barracks");
     }
 }

@@ -4,73 +4,113 @@ using UnityEngine.EventSystems;
 
 public class InputManager : MonoBehaviour
 {
-    [SerializeField]
-    private Camera sceneCamera;
+    [Header("References")]
+    [SerializeField] private Camera sceneCamera;
 
-    public event Action OnMouseUp, OnMouseClick, OnMouseTapped, OnMouseHold;
+    [Header("Tap / Hold Settings")]
+    [SerializeField] private float tapThreshold = 0.3f;
+    [SerializeField] private float holdThreshold = 1f;
+    [SerializeField] private float positionTolerance = 0.1f;
+
+    public event Action OnMouseUp;
+    public event Action OnMouseClick;
+    public event Action OnMouseTapped;
+    public event Action OnMouseHold;
     public event Action<float> OnMouseScroll;
+
     private float mouseDownTime;
     private Vector3 initialClickPosition;
-    private const float positionTolerance = 0.1f;
 
     private void Update()
     {
-        // Check if the mouse button is pressed down (start timing)
-        if (Input.GetMouseButtonDown(0) && !IsPointerOverUI())
+        HandleMouseDown();
+        HandleMouseScroll();
+        HandleMouseHold();
+        HandleMouseUp();
+    }
+
+    private void HandleMouseDown()
+    {
+        if (!Input.GetMouseButtonDown(0) || IsPointerOverUI())
         {
-            mouseDownTime = Time.time;
-            initialClickPosition = GetSelectedMapPosition();
-            OnMouseClick?.Invoke();
+            return;
         }
 
-        // Check for mouse scroll
-        if (Input.GetAxis("Mouse ScrollWheel") != 0f)
+        mouseDownTime = Time.time;
+        initialClickPosition = GetSelectedMapPosition();
+        OnMouseClick?.Invoke();
+    }
+
+    private void HandleMouseScroll()
+    {
+        float scrollDelta = Input.GetAxis("Mouse ScrollWheel");
+        if (Mathf.Abs(scrollDelta) > 0f)
         {
-            OnMouseScroll?.Invoke(Input.GetAxis("Mouse ScrollWheel"));
-        }
-
-        // Check if the mouse button is still held down
-        if (Input.GetMouseButton(0))
-        {
-            float elapsedTime = Time.time - mouseDownTime;
-            Vector3 currentMousePosition = GetSelectedMapPosition();
-
-            // Check if the mouse is held for more than 2 seconds and position hasn't changed significantly
-            if (elapsedTime > 1f && PositionsAreClose(initialClickPosition, currentMousePosition))
-            {
-                OnMouseHold?.Invoke();
-            }
-        }
-
-        // Check for mouse up
-        if (Input.GetMouseButtonUp(0))
-        {
-            OnMouseUp?.Invoke();
-            float elapsedTime = Time.time - mouseDownTime;
-            Vector3 mouseUpPosition = GetSelectedMapPosition();
-
-            if (elapsedTime < 0.3f && PositionsAreClose(initialClickPosition, mouseUpPosition))
-            {
-                OnMouseTapped?.Invoke();
-            }
+            OnMouseScroll?.Invoke(scrollDelta);
         }
     }
 
-    // Checks if clicked on UI element
+    private void HandleMouseHold()
+    {
+        if (!Input.GetMouseButton(0))
+        {
+            return;
+        }
+
+        float heldTime = Time.time - mouseDownTime;
+        if (heldTime < holdThreshold)
+        {
+            return;
+        }
+
+        Vector3 currentMousePosition = GetSelectedMapPosition();
+        if (PositionsAreClose(initialClickPosition, currentMousePosition))
+        {
+            OnMouseHold?.Invoke();
+        }
+    }
+
+    private void HandleMouseUp()
+    {
+        if (!Input.GetMouseButtonUp(0))
+        {
+            return;
+        }
+
+        OnMouseUp?.Invoke();
+
+        float heldTime = Time.time - mouseDownTime;
+        Vector3 mouseUpPosition = GetSelectedMapPosition();
+
+        bool isTap = heldTime < tapThreshold &&
+                     PositionsAreClose(initialClickPosition, mouseUpPosition);
+
+        if (isTap)
+        {
+            OnMouseTapped?.Invoke();
+        }
+    }
+
     public bool IsPointerOverUI()
-        => EventSystem.current.IsPointerOverGameObject();
+    {
+        return EventSystem.current != null && EventSystem.current.IsPointerOverGameObject();
+    }
 
     public Vector3 GetSelectedMapPosition()
     {
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.z = 0f;
+        if (sceneCamera == null)
+        {
+            Debug.LogError("InputManager: Scene camera is not assigned.");
+            return Vector3.zero;
+        }
 
-        // Convert mouse position to world position using the camera
-        Vector3 worldPos = sceneCamera.ScreenToWorldPoint(mousePos);
-        worldPos.z = 0f;
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition.z = -sceneCamera.transform.position.z;
 
-        return worldPos;
+        Vector3 worldPosition = sceneCamera.ScreenToWorldPoint(mousePosition);
+        worldPosition.z = 0f;
 
+        return worldPosition;
     }
 
     public Vector3 GetMousePosition()
@@ -78,8 +118,8 @@ public class InputManager : MonoBehaviour
         return Input.mousePosition;
     }
 
-    private bool PositionsAreClose(Vector3 pos1, Vector3 pos2)
+    private bool PositionsAreClose(Vector3 firstPosition, Vector3 secondPosition)
     {
-        return Vector3.Distance(pos1, pos2) <= positionTolerance;
+        return Vector3.Distance(firstPosition, secondPosition) <= positionTolerance;
     }
 }

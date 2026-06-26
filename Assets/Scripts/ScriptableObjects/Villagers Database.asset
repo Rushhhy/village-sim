@@ -206,10 +206,10 @@ MonoBehaviour:
     <ID>k__BackingField: 21
     tier: 2
     <villagerIcon>k__BackingField: {fileID: -8704231502140291222, guid: 80a191f5d8bcb884f81e7c06ca7518ec, type: 3}
-    <horseIcon>k__BackingField: {fileID: 0}
+    <horseIcon>k__BackingField: {fileID: 9154456979652714624, guid: 5ba0baf815eb4c144ae2deebd22673fd, type: 3}
     <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: ba8bfebf43d2e3042b63b558ffefd72f, type: 2}
     <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: f65ca9d68f667764c98b0ca791c44539, type: 2}
-    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 9100000, guid: 1bfba27777cc9104691e296409b34fed, type: 2}
     <range>k__BackingField: 2
   - <Name>k__BackingField: Arab
     <ID>k__BackingField: 22
@@ -224,41 +224,41 @@ MonoBehaviour:
     <ID>k__BackingField: 23
     tier: 2
     <villagerIcon>k__BackingField: {fileID: -8704231502140291222, guid: 5eb321e5712ee4c43ace180ed6eb6c05, type: 3}
-    <horseIcon>k__BackingField: {fileID: 0}
+    <horseIcon>k__BackingField: {fileID: -4070464573050159206, guid: 7ffa04eff5e027c4fbc3305b4177cd54, type: 3}
     <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 7d47f31038614b94994316b5506bc229, type: 2}
     <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: 9249a4fe06d393b4da68885978f0d7f4, type: 2}
-    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 9100000, guid: 81061e754cd19224fa8deafb915b5f3d, type: 2}
     <range>k__BackingField: 2
   - <Name>k__BackingField: Beowulf
     <ID>k__BackingField: 24
     tier: 2
     <villagerIcon>k__BackingField: {fileID: -8704231502140291222, guid: 4aa4df4c98db9cb45839355db7e9491d, type: 3}
-    <horseIcon>k__BackingField: {fileID: 0}
+    <horseIcon>k__BackingField: {fileID: 179822630939505130, guid: ec4fd7af996926f4b81c1e23a95fa0f9, type: 3}
     <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 52b9b596746bee445a32c93f4e25ab41, type: 2}
     <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: c31f20ed2ab6fac42b0f0a584f07fcab, type: 2}
-    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 9100000, guid: 0c0eaeba7b2a7b147b523dbceb3c1ec5, type: 2}
     <range>k__BackingField: 1
   - <Name>k__BackingField: Brawler
     <ID>k__BackingField: 25
     tier: 2
     <villagerIcon>k__BackingField: {fileID: -8704231502140291222, guid: f807ccf09b1feb34a8427df907b9a271, type: 3}
-    <horseIcon>k__BackingField: {fileID: 0}
+    <horseIcon>k__BackingField: {fileID: -7516926253553025504, guid: 5c98f93dd93b06244b692a4fbd93c9e3, type: 3}
     <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 185fe086c04ac7a4b86b9361a162bd00, type: 2}
     <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: 274573a45ede4a449a49d30190f1c1f6, type: 2}
-    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 9100000, guid: 5949493f60231214690ce773382719fb, type: 2}
     <range>k__BackingField: 1
   - <Name>k__BackingField: Cowboy
     <ID>k__BackingField: 26
     tier: 2
     <villagerIcon>k__BackingField: {fileID: -8704231502140291222, guid: 4a3c063526e4b7945806d225e9cea463, type: 3}
-    <horseIcon>k__BackingField: {fileID: 0}
+    <horseIcon>k__BackingField: {fileID: 8136387735547071461, guid: 538ed651735dcff4293b85ea7658e5ff, type: 3}
     <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 5abada14f51e8b34ca1d659e7495d7f2, type: 2}
     <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: 427eb7980bec405419fd1ae4f09c960a, type: 2}
-    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 9100000, guid: d7e260f907860dd4682e3d595b5cd386, type: 2}
     <range>k__BackingField: 2
   - <Name>k__BackingField: Herc
     <ID>k__BackingField: 27
-    tier: 2
+    tier: 1
     <villagerIcon>k__BackingField: {fileID: -8704231502140291222, guid: 9840e5bafa48b3849a48c8c325173a76, type: 3}
     <horseIcon>k__BackingField: {fileID: 0}
     <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: f07986e55e1f7b14489448d67b1ffb46, type: 2}
@@ -269,7 +269,7 @@ MonoBehaviour:
     <ID>k__BackingField: 28
     tier: 2
     <villagerIcon>k__BackingField: {fileID: -8704231502140291222, guid: 2876dda377455e8449d9968e9304bfd0, type: 3}
-    <horseIcon>k__BackingField: {fileID: -599235828578061513, guid: 3f6f553635a7e804d856e965e4f06194, type: 3}
+    <horseIcon>k__BackingField: {fileID: 8136387735547071461, guid: 538ed651735dcff4293b85ea7658e5ff, type: 3}
     <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: b79c9dc053f5b104582751a978accd18, type: 2}
     <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: 89ba8edc43c2ecb46b806b26cb921403, type: 2}
     <battleHorseAnimatorController>k__BackingField: {fileID: 9100000, guid: 657724663a662ae4eaef766073adf0a2, type: 2}
@@ -287,19 +287,19 @@ MonoBehaviour:
     <ID>k__BackingField: 30
     tier: 2
     <villagerIcon>k__BackingField: {fileID: -8704231502140291222, guid: 51aa16906d5b35642a56e3fbba84ecbb, type: 3}
-    <horseIcon>k__BackingField: {fileID: 0}
+    <horseIcon>k__BackingField: {fileID: 2798504507711590482, guid: c48d37aa54873be4e90c24bfb4c43b2f, type: 3}
     <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 3dbf92a789c6b2e4189f38f4d1c55fdf, type: 2}
     <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: 71c8650c3d33bc840a7df6400dbe140f, type: 2}
-    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 9100000, guid: b0a9964a9ec69c04ab5ec988b683ebda, type: 2}
     <range>k__BackingField: 1
   - <Name>k__BackingField: Napoleon
     <ID>k__BackingField: 31
     tier: 2
     <villagerIcon>k__BackingField: {fileID: -8704231502140291222, guid: 69fe2881012e0ae47ab604079f345e32, type: 3}
-    <horseIcon>k__BackingField: {fileID: 0}
+    <horseIcon>k__BackingField: {fileID: 4649257801589781090, guid: 28fe011b7cc10704989ad829b542cb7d, type: 3}
     <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 99b989a88a2ed664b902b9c99f6e030c, type: 2}
     <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: bb3b68d1f7b17164a858b5f14a55a8a6, type: 2}
-    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 9100000, guid: fca36123f23cad74385ca0e3dceca13d, type: 2}
     <range>k__BackingField: 2
   - <Name>k__BackingField: Pharaoh
     <ID>k__BackingField: 32
@@ -308,7 +308,7 @@ MonoBehaviour:
     <horseIcon>k__BackingField: {fileID: -2847103102723635820, guid: e1f18d709cb784941ac6951a4d41da82, type: 3}
     <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: a5e9e5d0c5f1d9749addc83cc70f8404, type: 2}
     <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: ca8ba07e9c77c2b43bc3eedd9965971a, type: 2}
-    <battleHorseAnimatorController>k__BackingField: {fileID: 9100000, guid: 2b308868fbe24294f84259424d9da59b, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 9100000, guid: 6db5fee7bb61f024699219f8f4ca1a20, type: 2}
     <range>k__BackingField: 1
   - <Name>k__BackingField: Pirate
     <ID>k__BackingField: 33
@@ -337,18 +337,18 @@ MonoBehaviour:
     <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: 01043bddee3d6514ba5d94a58713c89f, type: 2}
     <battleHorseAnimatorController>k__BackingField: {fileID: 9100000, guid: 9762a6c182393164aaf4893acdcdafe0, type: 2}
     <range>k__BackingField: 2
-  - <Name>k__BackingField: Ronin
+  - <Name>k__BackingField: Ronin Red
     <ID>k__BackingField: 36
-    tier: 2
-    <villagerIcon>k__BackingField: {fileID: -8704231502140291222, guid: 431c69e6f4e7ee243a2dab713f9d8890, type: 3}
+    tier: 1
+    <villagerIcon>k__BackingField: {fileID: -8704231502140291222, guid: 78f2f4daa9f8e0d4f9cfd35642ff5782, type: 3}
     <horseIcon>k__BackingField: {fileID: -9080230638935705270, guid: 5d8a05d04a038ed4a9bb2ad929f95790, type: 3}
-    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 02a9b5dce712b634781166f87f95f90b, type: 2}
-    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: 8ae0bdc48c441564db261477ee2a96e3, type: 2}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 61d7dde4e7778224095ef1b12a36d369, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: de32b3566b6fe574aa8626ad9b640d74, type: 2}
     <battleHorseAnimatorController>k__BackingField: {fileID: 9100000, guid: a05fa41a5e3341f4b9b059f67b6e1eda, type: 2}
     <range>k__BackingField: 1
-  - <Name>k__BackingField: Shinobi
+  - <Name>k__BackingField: Shinobi Black
     <ID>k__BackingField: 37
-    tier: 2
+    tier: 1
     <villagerIcon>k__BackingField: {fileID: -8704231502140291222, guid: d508d800bf2cec545993088a2052349d, type: 3}
     <horseIcon>k__BackingField: {fileID: 0}
     <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 7bd782c071bcadd4f83fae8e49901a1f, type: 2}
@@ -377,17 +377,251 @@ MonoBehaviour:
     <ID>k__BackingField: 40
     tier: 2
     <villagerIcon>k__BackingField: {fileID: -8704231502140291222, guid: f9c70cdec58fda34fbc429618c1e9e90, type: 3}
-    <horseIcon>k__BackingField: {fileID: 0}
+    <horseIcon>k__BackingField: {fileID: -2337673162852216079, guid: caf12e909899e5041acdc550cafc9e94, type: 3}
     <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: bb8696ea59fdf58469b0d52265382e79, type: 2}
     <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: 5c6e6841060aaa64aa21b1d20f87b643, type: 2}
-    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 9100000, guid: 6a67ab4dafb43c74d84f36089b7599a7, type: 2}
     <range>k__BackingField: 1
   - <Name>k__BackingField: Washington
     <ID>k__BackingField: 41
     tier: 2
     <villagerIcon>k__BackingField: {fileID: -8704231502140291222, guid: 3b450cd7e2ab4d54eadc16b45b137487, type: 3}
-    <horseIcon>k__BackingField: {fileID: 0}
+    <horseIcon>k__BackingField: {fileID: 1966326663375259124, guid: b31c2707eaf3d68419821ea2987de722, type: 3}
     <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 9af59692cd371164eb1420786e627b28, type: 2}
     <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: 03abd0e268ce2ad498bcef397f48fcbc, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 9100000, guid: 5a75a76d0973a6542b6bc692b86ba4a9, type: 2}
+    <range>k__BackingField: 2
+  - <Name>k__BackingField: Shinobi Grey
+    <ID>k__BackingField: 42
+    tier: 1
+    <villagerIcon>k__BackingField: {fileID: -8704231502140291222, guid: da0f14aa7e6a7b541bcde117aa0ffd3b, type: 3}
+    <horseIcon>k__BackingField: {fileID: 0}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 81c0a73f0f76f334db1a6ac2b93268cd, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: cb22f42d5abe527489b5e7a772ca5b07, type: 2}
     <battleHorseAnimatorController>k__BackingField: {fileID: 0}
     <range>k__BackingField: 2
+  - <Name>k__BackingField: Ronin Blue
+    <ID>k__BackingField: 43
+    tier: 1
+    <villagerIcon>k__BackingField: {fileID: -8704231502140291222, guid: 43d2a0df9c580dc4c902f6cc87c6c147, type: 3}
+    <horseIcon>k__BackingField: {fileID: 0}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: b9d2ed51a94f5014e9253a459721063c, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: 46770e80bf13ba84a822e0716d2605b6, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <range>k__BackingField: 1
+  - <Name>k__BackingField: Ronin Purple
+    <ID>k__BackingField: 44
+    tier: 1
+    <villagerIcon>k__BackingField: {fileID: -8704231502140291222, guid: f28eca4eab790ff418e7794f7db49a5e, type: 3}
+    <horseIcon>k__BackingField: {fileID: 0}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: b758aa9b41eafda4097628efa4605378, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: 94e6daec17d8ff94593ab604e2989030, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <range>k__BackingField: 2
+  - <Name>k__BackingField: Ronin Yellow
+    <ID>k__BackingField: 45
+    tier: 1
+    <villagerIcon>k__BackingField: {fileID: -8704231502140291222, guid: b17c1086784da624fb6b22adcd433ab2, type: 3}
+    <horseIcon>k__BackingField: {fileID: 0}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 5e6c35154047eb84ea82b00ca9f6d981, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: 54a34b13f881e4140a9b439508064c6c, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <range>k__BackingField: 1
+  - <Name>k__BackingField: Viking Archer Blonde
+    <ID>k__BackingField: 46
+    tier: 1
+    <villagerIcon>k__BackingField: {fileID: 3753117933951421518, guid: 7a2c902310193b44cb003104b9e1d870, type: 3}
+    <horseIcon>k__BackingField: {fileID: 0}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 28e437a58adbc784f89e053a02ace258, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: 4cf815e3f1ff3af4989dcd21b3bdbd5e, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <range>k__BackingField: 2
+  - <Name>k__BackingField: Viking Archer Ginger
+    <ID>k__BackingField: 47
+    tier: 1
+    <villagerIcon>k__BackingField: {fileID: -6212523133487362194, guid: 8c782ac6b4175244197696a0fe231b8e, type: 3}
+    <horseIcon>k__BackingField: {fileID: 0}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 63ef5fc3861b25740a591c653ff71b5a, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: bac15985e2665794586dfe4369bba186, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <range>k__BackingField: 2
+  - <Name>k__BackingField: Pirate Grunt Black
+    <ID>k__BackingField: 48
+    tier: 1
+    <villagerIcon>k__BackingField: {fileID: 3018706997132786707, guid: a1dfc2c6d8f30af4d835d7b3d8b8be7b, type: 3}
+    <horseIcon>k__BackingField: {fileID: 0}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: f6b724763e73b8e4e9ed0e52c99a9b95, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: 2b2dee8d67961694289568f94842a8ae, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <range>k__BackingField: 1
+  - <Name>k__BackingField: Pirate Grunt Brown
+    <ID>k__BackingField: 49
+    tier: 1
+    <villagerIcon>k__BackingField: {fileID: 8036648986203084774, guid: 41403e82e7313d74bb9ebfa26ae1ee88, type: 3}
+    <horseIcon>k__BackingField: {fileID: 0}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 8adc671135fca2b45b40328acc2128f6, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: 10b61ae062c38984da6edf4f5189e02c, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <range>k__BackingField: 1
+  - <Name>k__BackingField: Pirate Blue
+    <ID>k__BackingField: 50
+    tier: 1
+    <villagerIcon>k__BackingField: {fileID: 8436832712532522731, guid: 2497f7e67302fff448b1b69a4a4d908c, type: 3}
+    <horseIcon>k__BackingField: {fileID: 0}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 41340a97bf1e34c43bbcb60e8c1e81a3, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: b37329374adf7994d845c81f994c7761, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <range>k__BackingField: 1
+  - <Name>k__BackingField: Pirate Green
+    <ID>k__BackingField: 51
+    tier: 1
+    <villagerIcon>k__BackingField: {fileID: -7659931463400386714, guid: b79d37567d033de48a0f7fceb8f3b55d, type: 3}
+    <horseIcon>k__BackingField: {fileID: 0}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 67ec7eec7b8be8d4197cdd6824e41db9, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: 20dfdbb2f0ba7ea4891865576ecc2d56, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <range>k__BackingField: 1
+  - <Name>k__BackingField: Pirate Red
+    <ID>k__BackingField: 52
+    tier: 1
+    <villagerIcon>k__BackingField: {fileID: -2727091927949472674, guid: a0ade54f786c8db49a8f155646b96e26, type: 3}
+    <horseIcon>k__BackingField: {fileID: 0}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 4541ace378381cf4f866339cffdf5bec, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: 477816a6732df3c47873d156208f6c4c, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <range>k__BackingField: 1
+  - <Name>k__BackingField: Pirate Yellow
+    <ID>k__BackingField: 53
+    tier: 1
+    <villagerIcon>k__BackingField: {fileID: -8353228534053332446, guid: 4a0420068c3b06a459271563e47e16cd, type: 3}
+    <horseIcon>k__BackingField: {fileID: 0}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: c348d138c3ae32d4eb71b116843c2fbd, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: 213569f6ec6c1b84a9d522b78e0bbe8f, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <range>k__BackingField: 1
+  - <Name>k__BackingField: Long Hair Brown
+    <ID>k__BackingField: 54
+    tier: 1
+    <villagerIcon>k__BackingField: {fileID: 8380012332808367150, guid: f3e465d314fac5d40ae91038686f7a24, type: 3}
+    <horseIcon>k__BackingField: {fileID: 0}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 56b9e04b0cbb0ab479278db9ce8c1cf4, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: e88a80ac040136840be72d9e6c12dac2, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <range>k__BackingField: 1
+  - <Name>k__BackingField: Long Hair Black
+    <ID>k__BackingField: 55
+    tier: 1
+    <villagerIcon>k__BackingField: {fileID: -3644632197302238685, guid: 4727c7b347d534845b693e80c58d3088, type: 3}
+    <horseIcon>k__BackingField: {fileID: 0}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: e0c6401ebb2490b40ada36209618f21f, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: 8184ae1a18a27254a971605fc7e2161f, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <range>k__BackingField: 1
+  - <Name>k__BackingField: Hooded Archer Blue
+    <ID>k__BackingField: 56
+    tier: 1
+    <villagerIcon>k__BackingField: {fileID: -1002048415699181626, guid: 36290a55a408c0e46ac0dec8976649d5, type: 3}
+    <horseIcon>k__BackingField: {fileID: 0}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: e149407f97dc0c246822c63ee1f40180, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: 7a602f3316a781f4d9a8c271bb860848, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <range>k__BackingField: 2
+  - <Name>k__BackingField: Hooded Archer Green
+    <ID>k__BackingField: 57
+    tier: 1
+    <villagerIcon>k__BackingField: {fileID: 6648534557045133683, guid: 274a1d5523f5ab4469d28822c098ed04, type: 3}
+    <horseIcon>k__BackingField: {fileID: 0}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: a77a5cc1a9a827e4290138014db1e81e, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: 0ad2c7b42d9bcf44ea148ddf6fed6e4b, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <range>k__BackingField: 2
+  - <Name>k__BackingField: Japanese Black
+    <ID>k__BackingField: 58
+    tier: 2
+    <villagerIcon>k__BackingField: {fileID: 5129190736864755750, guid: 0e1a3c7c5b5efd44dbfe8cbcc13a3575, type: 3}
+    <horseIcon>k__BackingField: {fileID: -1248187029577646700, guid: 19b8d81d99434064eb020791a9d03856, type: 3}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: ef55690ef632f4b468ebd5ac0cf8525b, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: d2f2d8e6d7843e240a4036b4e0503a7e, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 9100000, guid: 5309b2ff907be2f449ccf37925143841, type: 2}
+    <range>k__BackingField: 1
+  - <Name>k__BackingField: Japanese White
+    <ID>k__BackingField: 59
+    tier: 2
+    <villagerIcon>k__BackingField: {fileID: -4479011139988672388, guid: 61891085227930349b32f3b342d43044, type: 3}
+    <horseIcon>k__BackingField: {fileID: 5989522455960745120, guid: 2f089d6bfa44e11489eac7d7b33c8002, type: 3}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 75c2a90417cd34c419771f78f2e26eb6, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: 32db7e77b19bc01409159402f2a60072, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 9100000, guid: 9d099f1bda9614946a5b99811b8399a0, type: 2}
+    <range>k__BackingField: 1
+  - <Name>k__BackingField: Mohawk Bandit
+    <ID>k__BackingField: 60
+    tier: 2
+    <villagerIcon>k__BackingField: {fileID: 3951870318899198509, guid: c108f5aede09f494dafd7314bb5bddc4, type: 3}
+    <horseIcon>k__BackingField: {fileID: -3198378139464425674, guid: bba8f3a787d0edc4fbc471a4291b4c3a, type: 3}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 8f20c5b825a1e034bb7833f6ae9236fc, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: 0f53b44243c75374296b02140be06263, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 9100000, guid: 94a18d41860bea741a669b9e212a05f6, type: 2}
+    <range>k__BackingField: 1
+  - <Name>k__BackingField: Pirate Black
+    <ID>k__BackingField: 61
+    tier: 2
+    <villagerIcon>k__BackingField: {fileID: 7476723528470995779, guid: 2d33e1764806c364c96756e400da99e0, type: 3}
+    <horseIcon>k__BackingField: {fileID: -8307768016013386696, guid: 3d9b65e11be2d6b49937707c128b0970, type: 3}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 9cc867b34bc60814cac12af170028372, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: e854e2a0bbdac904aaa610ba8d2ba806, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 9100000, guid: 6aea2bbe4ed454442ba60eff9de32555, type: 2}
+    <range>k__BackingField: 2
+  - <Name>k__BackingField: Pirate Captain
+    <ID>k__BackingField: 62
+    tier: 2
+    <villagerIcon>k__BackingField: {fileID: 2176649877114426446, guid: 8a23e163f0905e64cad148bb2233e1c7, type: 3}
+    <horseIcon>k__BackingField: {fileID: -903198650777605227, guid: 55e6f2811a798ea448c4474119b7df7d, type: 3}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: fcc5dd9ee01072d4d9b34616fde142b2, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: b4a54fec718f80e458612ce7269ac3fb, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 9100000, guid: b287f71d271263046972a7308dbded84, type: 2}
+    <range>k__BackingField: 1
+  - <Name>k__BackingField: Viking Chief
+    <ID>k__BackingField: 63
+    tier: 2
+    <villagerIcon>k__BackingField: {fileID: 556212739702419242, guid: 5668c5a57db4b334cbbad17c839667b2, type: 3}
+    <horseIcon>k__BackingField: {fileID: -2515422842421257187, guid: 5a14543ff6b2db643957fe3577e8d523, type: 3}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 675aa4ecf18cb2b41a765f644a3dc733, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: c1904ae0a64e84749a5d08f59a8909cf, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 9100000, guid: a2a85365f35678a4f875c1e459a44298, type: 2}
+    <range>k__BackingField: 1
+  - <Name>k__BackingField: Blue
+    <ID>k__BackingField: 64
+    tier: 3
+    <villagerIcon>k__BackingField: {fileID: -1677001543800985166, guid: 4167d592c1f96a1488bb9c3483976a85, type: 3}
+    <horseIcon>k__BackingField: {fileID: 0}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 0fadf6a157403604d8b96635c5ee2d11, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: b94ce3d56c14c2e4caa1505072a963e2, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <range>k__BackingField: 1
+  - <Name>k__BackingField: Red
+    <ID>k__BackingField: 65
+    tier: 3
+    <villagerIcon>k__BackingField: {fileID: -1264807362160419629, guid: e310b1c9ba1a80649a478be3068aaafc, type: 3}
+    <horseIcon>k__BackingField: {fileID: 0}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 93cd0d556f21c1b44b65d38b6f472ca0, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: 01f8d8dac15bea241be6fd293f2eed53, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <range>k__BackingField: 1
+  - <Name>k__BackingField: Fighter White
+    <ID>k__BackingField: 66
+    tier: 1
+    <villagerIcon>k__BackingField: {fileID: -3286305605989372927, guid: bb040f1c495c7be40ad40d94f4b4f5c3, type: 3}
+    <horseIcon>k__BackingField: {fileID: 0}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 117aa715ad3af4c4fa01e2a4df31e3b5, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: c6a939774ef51414aa7987e597e64823, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <range>k__BackingField: 1
+  - <Name>k__BackingField: Fighter Black
+    <ID>k__BackingField: 67
+    tier: 3
+    <villagerIcon>k__BackingField: {fileID: -6532639689496033623, guid: 42f9ab742184d544b8668a1b4f61b7f2, type: 3}
+    <horseIcon>k__BackingField: {fileID: 0}
+    <villagerAnimatorController>k__BackingField: {fileID: 9100000, guid: 26d78b6e3aba49f4599f2f1a814af898, type: 2}
+    <battleAnimatorController>k__BackingField: {fileID: 9100000, guid: d4901608418ffc943a38007863caeb5a, type: 2}
+    <battleHorseAnimatorController>k__BackingField: {fileID: 0}
+    <range>k__BackingField: 1

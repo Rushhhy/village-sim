@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5195379209274764232}
   - component: {fileID: -7306553615043372933}
   - component: {fileID: 1790599256994685451}
+  - component: {fileID: -7226764774124083509}
   m_Layer: 0
   m_Name: Market
   m_TagString: Untagged
@@ -51,6 +52,7 @@ MonoBehaviour:
   - 8
   - 11
   Index: 0
+  ID: 0
   Level: 0
   width: 0
   BuildingName: Market (Not Built)
@@ -66,9 +68,21 @@ MonoBehaviour:
   finishConstructionPrefab: {fileID: 5561826608019725874, guid: 9b8ecc4fbcf145a46bd0ef84d1f50418, type: 3}
   smokeExplosionPrefab: {fileID: 3416172978003560163, guid: eb6d53b1f414c3d4e9f06e24181d1d2f, type: 3}
   hammerPrefab: {fileID: 2000148515507632619, guid: 93ac401c2dc0c0041bf317fd39e63545, type: 3}
+  workPositions: []
+  workPositionsOne: []
+  workPositionsTwo: []
+  workPositionsThree: []
+  resourceGainPopupPrefab: {fileID: 0}
   marketOne: {fileID: 7351425040882779996, guid: dc2a2091d9cf15548b8c527fc5ee64df, type: 3}
   marketTwo: {fileID: 1563977444598131247, guid: fc16d96d5f6b9c945ad8d3e0f2656ede, type: 3}
   marketThree: {fileID: 1704233918406790875, guid: 4a45b6e64d7aae240a8f25972b8decb4, type: 3}
+  marketEntryPrefab: {fileID: 7531930945919853746, guid: 70b869416fdfea54dbfa65b6ddfcf629, type: 3}
+  resources: {fileID: 11400000, guid: 1e9501016d78fe848a4914f45eb0c829, type: 2}
+  newOrderTime: 10
+  maxOrdersLevelOne: 2
+  maxOrdersLevelTwo: 3
+  maxOrdersLevelThree: 4
+  noOrdersText: {fileID: 0}
 --- !u!212 &1790599256994685451
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -121,6 +135,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-7226764774124083509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7351425040882779996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dfd29584456df14c8ab17f3601e7b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8581939315264727492
 GameObject:
   m_ObjectHideFlags: 0

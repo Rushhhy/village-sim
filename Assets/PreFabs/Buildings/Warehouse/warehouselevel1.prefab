@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5426169537543992837}
   - component: {fileID: 6569676404227106659}
   - component: {fileID: 2951656218364977253}
+  - component: {fileID: 996263646881933817}
   m_Layer: 0
   m_Name: warehouselevel1
   m_TagString: Untagged
@@ -102,6 +103,7 @@ MonoBehaviour:
   - 8
   - 11
   Index: 0
+  ID: 0
   Level: 0
   width: 0
   BuildingName: 
@@ -117,3 +119,23 @@ MonoBehaviour:
   finishConstructionPrefab: {fileID: 5561826608019725874, guid: 9b8ecc4fbcf145a46bd0ef84d1f50418, type: 3}
   smokeExplosionPrefab: {fileID: 3416172978003560163, guid: eb6d53b1f414c3d4e9f06e24181d1d2f, type: 3}
   hammerPrefab: {fileID: 2000148515507632619, guid: 93ac401c2dc0c0041bf317fd39e63545, type: 3}
+  workPositions: []
+  workPositionsOne: []
+  workPositionsTwo: []
+  workPositionsThree: []
+  resourceGainPopupPrefab: {fileID: 0}
+  capacityLevelOne: 100
+  capacityLevelTwo: 200
+  capacityLevelThree: 300
+--- !u!114 &996263646881933817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3665153952504698274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dfd29584456df14c8ab17f3601e7b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

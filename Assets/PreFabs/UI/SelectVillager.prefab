@@ -74,8 +74,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280680703
-  m_fontColor: {r: 1, g: 0, b: 0.15, a: 1}
+    rgba: 4278229503
+  m_fontColor: {r: 1, g: 0.6, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -837,6 +837,7 @@ GameObject:
   - component: {fileID: 8124405963996731853}
   - component: {fileID: 6272738376644387743}
   - component: {fileID: 2588593521673620318}
+  - component: {fileID: 8301878410129572963}
   m_Layer: 5
   m_Name: SelectVillager
   m_TagString: Untagged
@@ -991,6 +992,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainPanel: {fileID: 7514464296140922144}
   villagerDescription: {fileID: 4237349555082853749}
+--- !u!114 &8301878410129572963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6356582757838202905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47976aed4107ccf4f9657f2721a38097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NameText: {fileID: 4560226426584424808}
+  VillagerImage: {fileID: 6952377448682721093}
+  SelectButton: {fileID: 2044721394531323086}
+  AddedBadge: {fileID: 0}
+  WorkStatusText: {fileID: 1322477517977197668}
+  DescriptionText: {fileID: 2583647704584960228}
 --- !u!1 &6443976322023121026
 GameObject:
   m_ObjectHideFlags: 0

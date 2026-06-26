@@ -49,12 +49,15 @@ public class CameraMovement : MonoBehaviour
         targetPosition = cam.transform.position;
     }
 
-    private void moveToBuilding(Vector3Int buildingPosition)
+    private void moveToBuilding(Vector3 buildingPosition)
     {
-        Vector3 worldPosition = new Vector3(buildingPosition.x + 0.5f, buildingPosition.y + 0.5f, cam.transform.position.z);
-        targetPosition = ClampToBounds(worldPosition);
+        Vector3 worldPosition = new Vector3(
+            buildingPosition.x,
+            buildingPosition.y,
+            cam.transform.position.z
+        );
 
-        // Optional: zero out velocity to cancel inertia if snapping to a position
+        targetPosition = ClampToBounds(worldPosition);
         velocity = Vector3.zero;
     }
 

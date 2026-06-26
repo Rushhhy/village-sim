@@ -16,23 +16,23 @@ MonoBehaviour:
   - <Name>k__BackingField: Wheat
     <ID>k__BackingField: 0
     <Icon>k__BackingField: {fileID: 4904014423234019196, guid: 8d955e1ae9c2edb42913dae276fc7641, type: 3}
-    <Price>k__BackingField: 10
+    <Price>k__BackingField: 2
   - <Name>k__BackingField: Wood
     <ID>k__BackingField: 1
     <Icon>k__BackingField: {fileID: 6471035272020321574, guid: f83a437576473494485031fb0d7531a5, type: 3}
-    <Price>k__BackingField: 10
+    <Price>k__BackingField: 2
   - <Name>k__BackingField: Tools
     <ID>k__BackingField: 2
     <Icon>k__BackingField: {fileID: 6016554333157390400, guid: ce6bf7d18cf84a340a93e65de6b67900, type: 3}
-    <Price>k__BackingField: 10
+    <Price>k__BackingField: 8
   - <Name>k__BackingField: Stone
     <ID>k__BackingField: 3
     <Icon>k__BackingField: {fileID: -3206834411881217706, guid: 50216e3158952f04c936c8fd35e351c1, type: 3}
-    <Price>k__BackingField: 10
+    <Price>k__BackingField: 3
   - <Name>k__BackingField: Iron
     <ID>k__BackingField: 4
     <Icon>k__BackingField: {fileID: -7545493341316801707, guid: a654047161268c249ba1959bf776a874, type: 3}
-    <Price>k__BackingField: 10
+    <Price>k__BackingField: 5
   - <Name>k__BackingField: Hardwood
     <ID>k__BackingField: 5
     <Icon>k__BackingField: {fileID: 4369431731229812058, guid: 066d7548f31f454498afe4f8c89d8c6e, type: 3}
@@ -40,28 +40,28 @@ MonoBehaviour:
   - <Name>k__BackingField: Leather
     <ID>k__BackingField: 6
     <Icon>k__BackingField: {fileID: 1809407184037951677, guid: 7ac0b157a59151344949784f706c3ed9, type: 3}
-    <Price>k__BackingField: 10
+    <Price>k__BackingField: 8
   - <Name>k__BackingField: Meat
     <ID>k__BackingField: 7
     <Icon>k__BackingField: {fileID: -5672331293951226614, guid: 2f53d4a24a55faf44b23879540b93fdf, type: 3}
-    <Price>k__BackingField: 10
+    <Price>k__BackingField: 8
   - <Name>k__BackingField: Flour
     <ID>k__BackingField: 8
     <Icon>k__BackingField: {fileID: 7899446949791501820, guid: 3c46c27084a91624a8226483aadadf46, type: 3}
-    <Price>k__BackingField: 10
+    <Price>k__BackingField: 6
   - <Name>k__BackingField: Bread
     <ID>k__BackingField: 9
     <Icon>k__BackingField: {fileID: -468183402820870577, guid: 91ab5e3a499722b448a76c6e1d5136ce, type: 3}
-    <Price>k__BackingField: 10
+    <Price>k__BackingField: 12
   - <Name>k__BackingField: Clothing
     <ID>k__BackingField: 10
     <Icon>k__BackingField: {fileID: -6685050354900185037, guid: 2cdcab8f1418d144fba68b1de7029d31, type: 3}
-    <Price>k__BackingField: 10
+    <Price>k__BackingField: 18
   - <Name>k__BackingField: Furniture
     <ID>k__BackingField: 11
     <Icon>k__BackingField: {fileID: -4281837429438263839, guid: 7283749b8830d6c418e26812250898e0, type: 3}
-    <Price>k__BackingField: 10
+    <Price>k__BackingField: 22
   - <Name>k__BackingField: Gems
     <ID>k__BackingField: 12
     <Icon>k__BackingField: {fileID: -1040724651523184369, guid: a4739604b5932344a8b0382ad8a6819a, type: 3}
-    <Price>k__BackingField: 10
+    <Price>k__BackingField: 0

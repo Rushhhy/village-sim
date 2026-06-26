@@ -8,18 +8,6 @@ public class Stables : Building
     public override void UpgradeBuilding()
     {
         base.UpgradeBuilding();
-
-        if (Level == 1)
-        {
-            BuildingName = "Stables LVL1";
-        }
-        if (Level == 2)
-        {
-            BuildingName = "Stables LVL2";
-        }
-        else if (Level == 3)
-        {
-            BuildingName = "Stables LVL3";
-        }
+        SetBuildingNameByLevel("Stables");
     }
 }

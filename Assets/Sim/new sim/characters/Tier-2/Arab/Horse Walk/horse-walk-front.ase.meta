@@ -75,7 +75,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 1
-    defaultPivotAlignment: 6
+    defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
     mosaicPadding: 4
     spritePadding: 0
@@ -88,7 +88,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 1
-    defaultPivotAlignment: 6
+    defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
     mosaicPadding: 4
     spritePadding: 0
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638853784256044669
+  platformSettingsDirtyTick: 639054748144914965
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -124,13 +124,13 @@ ScriptedImporter:
   - name: barrel
     originalName: 
     pivot: {x: 0.5, y: 0.5}
-    alignment: 6
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 32
+      width: 48
       height: 50
     spriteID: d690e8d401517934097fb8e020185efc
     spriteBone: []
@@ -144,13 +144,13 @@ ScriptedImporter:
   - name: Frame_1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
-    alignment: 6
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 44
-      y: 4
-      width: 32
+      x: 4
+      y: 62
+      width: 48
       height: 50
     spriteID: bed961bb7e698224588ab99baa5c1a97
     spriteBone: []
@@ -160,17 +160,17 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 44, y: 4}
+    uvTransform: {x: 4, y: 62}
   - name: Frame_2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
-    alignment: 6
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 84
-      y: 4
-      width: 32
+      x: 4
+      y: 120
+      width: 48
       height: 50
     spriteID: 5fb972e91bb89014eb24f8c6be9fd204
     spriteBone: []
@@ -180,17 +180,17 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 84, y: 4}
+    uvTransform: {x: 4, y: 120}
   - name: Frame_3
     originalName: 
     pivot: {x: 0.5, y: 0.5}
-    alignment: 6
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 62
-      width: 32
+      y: 178
+      width: 48
       height: 50
     spriteID: 00b6d14fea025d94e99313f0948cf6bb
     spriteBone: []
@@ -200,17 +200,17 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 62}
+    uvTransform: {x: 4, y: 178}
   - name: Frame_4
     originalName: 
     pivot: {x: 0.5, y: 0.5}
-    alignment: 6
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 44
-      y: 62
-      width: 32
+      x: 60
+      y: 4
+      width: 48
       height: 50
     spriteID: e2fac2c1ba248b44cba7bce451f2888b
     spriteBone: []
@@ -220,7 +220,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 44, y: 62}
+    uvTransform: {x: 60, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -236,7 +236,7 @@ ScriptedImporter:
       cellRect:
         x: 0
         y: 0
-        width: 32
+        width: 48
         height: 50
       spriteId: d690e8d401517934097fb8e020185efc
     - name: Frame_1
@@ -245,7 +245,7 @@ ScriptedImporter:
       cellRect:
         x: 0
         y: 0
-        width: 32
+        width: 48
         height: 50
       spriteId: bed961bb7e698224588ab99baa5c1a97
     - name: Frame_2
@@ -254,7 +254,7 @@ ScriptedImporter:
       cellRect:
         x: 0
         y: 0
-        width: 32
+        width: 48
         height: 50
       spriteId: 5fb972e91bb89014eb24f8c6be9fd204
     - name: Frame_3
@@ -263,7 +263,7 @@ ScriptedImporter:
       cellRect:
         x: 0
         y: 0
-        width: 32
+        width: 48
         height: 50
       spriteId: 00b6d14fea025d94e99313f0948cf6bb
     - name: Frame_4
@@ -272,7 +272,7 @@ ScriptedImporter:
       cellRect:
         x: 0
         y: 0
-        width: 32
+        width: 48
         height: 50
       spriteId: e2fac2c1ba248b44cba7bce451f2888b
     linkedCells: []
@@ -353,4 +353,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 32, y: 50}
+  canvasSize: {x: 48, y: 50}

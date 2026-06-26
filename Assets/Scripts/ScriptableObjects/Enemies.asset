@@ -1,0 +1,345 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca2b5a16e8a3f045975ec3ed05332fe, type: 3}
+  m_Name: Enemies
+  m_EditorClassIdentifier: 
+  enemiesData:
+  - Name: Bee
+    ID: 0
+    Icon: {fileID: -2807243377302734848, guid: fb38ba8bcdc584843bf16893a42bad4b, type: 3}
+    Animator: {fileID: 9100000, guid: bca86869b8fc4ad48b7b81a55c7a62cd, type: 2}
+    Range: 1
+  - Name: Bee Royal
+    ID: 1
+    Icon: {fileID: -944250433423358648, guid: f8eba096829d5ba44a0ef0ea82f93ebf, type: 3}
+    Animator: {fileID: 9100000, guid: 731cd20e7f36d1048b6dcabf773e56a5, type: 2}
+    Range: 1
+  - Name: Bald Eagle
+    ID: 2
+    Icon: {fileID: 4362136840538552574, guid: fe0bdb5a982f41942b766a8edbfe1439, type: 3}
+    Animator: {fileID: 9100000, guid: 6e87776a83be1d4458138796d46b83ee, type: 2}
+    Range: 1
+  - Name: Owl
+    ID: 3
+    Icon: {fileID: 8335035042233026082, guid: a033211392ac3d340b7f4a735cf32e41, type: 3}
+    Animator: {fileID: 9100000, guid: 24e39c69423173f4da6288bbb65572bc, type: 2}
+    Range: 1
+  - Name: Corra
+    ID: 4
+    Icon: {fileID: 1348954217838533967, guid: dea900b7ae0c3734f90b23ab378fc7ea, type: 3}
+    Animator: {fileID: 9100000, guid: cae2dc7fbc2d25749935ce5bbe17264a, type: 2}
+    Range: 1
+  - Name: Rat Small
+    ID: 5
+    Icon: {fileID: 3085190558626113160, guid: e7db05e205c5bc2479a2019ca93ebf61, type: 3}
+    Animator: {fileID: 9100000, guid: 23c0f28cd5710884da8644950f013bec, type: 2}
+    Range: 1
+  - Name: Rat Large
+    ID: 6
+    Icon: {fileID: -2803498847059734030, guid: e03cdb845bb9daa41bb730613c440a2f, type: 3}
+    Animator: {fileID: 9100000, guid: af603e27dd6441d428694422ebd6f0fe, type: 2}
+    Range: 1
+  - Name: Black Snake
+    ID: 7
+    Icon: {fileID: 5377170559045559676, guid: 15c2ade894a5e13498073418fc1c6b61, type: 3}
+    Animator: {fileID: 9100000, guid: 9ec5af18f02459f4ca2c5e01c644452a, type: 2}
+    Range: 1
+  - Name: Ant
+    ID: 8
+    Icon: {fileID: -8299249066455725453, guid: be86ba640100c3d42a07106e851835a1, type: 3}
+    Animator: {fileID: 9100000, guid: 503b865dea0271049bb3137c9ad654e5, type: 2}
+    Range: 1
+  - Name: Bobcat
+    ID: 9
+    Icon: {fileID: 7671091456814275012, guid: ad9e76b3ab966fc4cb6b401f980d3726, type: 3}
+    Animator: {fileID: 9100000, guid: d931c549d1cae754e98d5897a5adda5d, type: 2}
+    Range: 1
+  - Name: Mutated Panther
+    ID: 10
+    Icon: {fileID: -1388352089524651059, guid: 32a6316ccd1039f4ba2aea5c20779a4d, type: 3}
+    Animator: {fileID: 9100000, guid: 078bb36b1c7f3024284f2f42c7a1b843, type: 2}
+    Range: 1
+  - Name: White Spider
+    ID: 11
+    Icon: {fileID: -44784542704902039, guid: 3460cb2cc03e32b46a4069ba0ed96513, type: 3}
+    Animator: {fileID: 9100000, guid: 933e1b4169a668c4caf0300721f9982a, type: 2}
+    Range: 1
+  - Name: Black Spider
+    ID: 12
+    Icon: {fileID: 2316456026280600920, guid: f4070a4c344e523419615e1860a97655, type: 3}
+    Animator: {fileID: 9100000, guid: 7ddfea1a0b58f034ca759479b6aa009d, type: 2}
+    Range: 1
+  - Name: Yellow Snake
+    ID: 13
+    Icon: {fileID: -6176825380923515227, guid: 56b54dabb2afb0c48966ee422aa4a0a4, type: 3}
+    Animator: {fileID: 9100000, guid: 44fe81197f6189c40993b792c5c8438d, type: 2}
+    Range: 1
+  - Name: Wolf
+    ID: 14
+    Icon: {fileID: 604234532962578270, guid: d62867a5b8b210845b7ac2e0dd8081c8, type: 3}
+    Animator: {fileID: 9100000, guid: fee076986c21a0740bbc3ee32f7aa5e1, type: 2}
+    Range: 1
+  - Name: Bandit Archer One
+    ID: 15
+    Icon: {fileID: -6514238812941355485, guid: 3a9b61c392ac87848926e523455a482b, type: 3}
+    Animator: {fileID: 9100000, guid: c50e0e97c0eb9d44fb523d205375db90, type: 2}
+    Range: 1
+  - Name: Bandit Archer Two
+    ID: 16
+    Icon: {fileID: 5964851539720666277, guid: 660850f6f118c014e91651043d7a44f9, type: 3}
+    Animator: {fileID: 9100000, guid: 14b7dfd6eb34b9e4fba90e58a868534c, type: 2}
+    Range: 1
+  - Name: Bandit Boss
+    ID: 17
+    Icon: {fileID: 7259589470144610453, guid: ad1922386b813a948997ff29d53f66a7, type: 3}
+    Animator: {fileID: 9100000, guid: f8f8cec275ccc704298d6ad56ddc6015, type: 2}
+    Range: 1
+  - Name: Bandit Grunt One
+    ID: 18
+    Icon: {fileID: -2068633771711656281, guid: a9944d0484dd9bb42aa5466baf645e92, type: 3}
+    Animator: {fileID: 9100000, guid: 5701cd91d170aa249966dfb84ff48a8e, type: 2}
+    Range: 1
+  - Name: Bandit Grunt Two
+    ID: 19
+    Icon: {fileID: 4004972048474874703, guid: b6e692bec7db5d94dbf0c8f9e8513da2, type: 3}
+    Animator: {fileID: 9100000, guid: d5eefb1cbf70fc5439d1a5a76287bde2, type: 2}
+    Range: 1
+  - Name: Brawler
+    ID: 20
+    Icon: {fileID: -5804873732042146709, guid: c5d14daa1a7031a4ca2ad848aefdc386, type: 3}
+    Animator: {fileID: 9100000, guid: 274573a45ede4a449a49d30190f1c1f6, type: 2}
+    Range: 1
+  - Name: Assassin
+    ID: 21
+    Icon: {fileID: -8704231502140291222, guid: 8f99a8470a1533a4584728cb7e50ebbe, type: 3}
+    Animator: {fileID: 9100000, guid: 9249a4fe06d393b4da68885978f0d7f4, type: 2}
+    Range: 1
+  - Name: Mohawk Bandit
+    ID: 22
+    Icon: {fileID: -7561754309838991118, guid: a8d0cca3ab7ea16419233159f1e78275, type: 3}
+    Animator: {fileID: 9100000, guid: 0f53b44243c75374296b02140be06263, type: 2}
+    Range: 1
+  - Name: Mohawk Bandit
+    ID: 23
+    Icon: {fileID: -7561754309838991118, guid: a8d0cca3ab7ea16419233159f1e78275, type: 3}
+    Animator: {fileID: 9100000, guid: 0f53b44243c75374296b02140be06263, type: 2}
+    Range: 1
+  - Name: Fighter Black
+    ID: 24
+    Icon: {fileID: -6532639689496033623, guid: 42f9ab742184d544b8668a1b4f61b7f2, type: 3}
+    Animator: {fileID: 9100000, guid: d4901608418ffc943a38007863caeb5a, type: 2}
+    Range: 1
+  - Name: Fighter White
+    ID: 25
+    Icon: {fileID: -3286305605989372927, guid: bb040f1c495c7be40ad40d94f4b4f5c3, type: 3}
+    Animator: {fileID: 9100000, guid: c6a939774ef51414aa7987e597e64823, type: 2}
+    Range: 1
+  - Name: Ronin Blue
+    ID: 26
+    Icon: {fileID: -8704231502140291222, guid: 3512337903058214480893f75d04c530, type: 3}
+    Animator: {fileID: 9100000, guid: 46770e80bf13ba84a822e0716d2605b6, type: 2}
+    Range: 1
+  - Name: Ronin Purple
+    ID: 27
+    Icon: {fileID: -8704231502140291222, guid: a643afec3e21a75409d3af1daecd6b2c, type: 3}
+    Animator: {fileID: 9100000, guid: 94e6daec17d8ff94593ab604e2989030, type: 2}
+    Range: 1
+  - Name: Ronin Red
+    ID: 28
+    Icon: {fileID: -8704231502140291222, guid: e46962e19c7e0ac4ba3840df1cb76c7a, type: 3}
+    Animator: {fileID: 9100000, guid: de32b3566b6fe574aa8626ad9b640d74, type: 2}
+    Range: 1
+  - Name: Ronin Yellow
+    ID: 29
+    Icon: {fileID: -8704231502140291222, guid: 9a7cedf1295ec334d93a40e103b88025, type: 3}
+    Animator: {fileID: 9100000, guid: 54a34b13f881e4140a9b439508064c6c, type: 2}
+    Range: 1
+  - Name: Shinobi Black
+    ID: 30
+    Icon: {fileID: -8704231502140291222, guid: e70e197f4152b4944bdbe15bab16b370, type: 3}
+    Animator: {fileID: 9100000, guid: b8937bb368f09c8449d70cc47c8134f3, type: 2}
+    Range: 1
+  - Name: Shinobi Grey
+    ID: 31
+    Icon: {fileID: -8704231502140291222, guid: 18ce5f6dcaa0b394a95e4ea7f9be2e1b, type: 3}
+    Animator: {fileID: 9100000, guid: cb22f42d5abe527489b5e7a772ca5b07, type: 2}
+    Range: 1
+  - Name: Japanese Black
+    ID: 32
+    Icon: {fileID: 8819345858089352999, guid: 31e15427c239396429c6b91406405b83, type: 3}
+    Animator: {fileID: 9100000, guid: d2f2d8e6d7843e240a4036b4e0503a7e, type: 2}
+    Range: 1
+  - Name: Japanese White
+    ID: 33
+    Icon: {fileID: 2674234039781614416, guid: 68bb7f1bda91eeb4e84fbe3b15c05a19, type: 3}
+    Animator: {fileID: 9100000, guid: 32db7e77b19bc01409159402f2a60072, type: 2}
+    Range: 1
+  - Name: Shogun
+    ID: 34
+    Icon: {fileID: -6849603719753727347, guid: 0867044204caa2f4ab63b4ae2d7d3ab4, type: 3}
+    Animator: {fileID: 9100000, guid: e9458476e419fb146ba042607c7fa674, type: 2}
+    Range: 1
+  - Name: Hooded Archer Blue
+    ID: 35
+    Icon: {fileID: -4632927853235235618, guid: 90b96a68c9789dc4484658fb0fb3f6fc, type: 3}
+    Animator: {fileID: 9100000, guid: 7a602f3316a781f4d9a8c271bb860848, type: 2}
+    Range: 1
+  - Name: Hooded Archer Green
+    ID: 36
+    Icon: {fileID: -8629119209834072037, guid: 7bd0afb9933be734792d9146454dc747, type: 3}
+    Animator: {fileID: 9100000, guid: 0ad2c7b42d9bcf44ea148ddf6fed6e4b, type: 2}
+    Range: 1
+  - Name: Knight
+    ID: 37
+    Icon: {fileID: -8704231502140291222, guid: 77cac4ac523d87a4985283c683d47f24, type: 3}
+    Animator: {fileID: 9100000, guid: 71c8650c3d33bc840a7df6400dbe140f, type: 2}
+    Range: 1
+  - Name: Spartan
+    ID: 38
+    Icon: {fileID: -8704231502140291222, guid: eb506ad34ca6b004ca002528ac64c26a, type: 3}
+    Animator: {fileID: 9100000, guid: 71fc7c0ed9501864f83e5e286dd93bcc, type: 2}
+    Range: 1
+  - Name: Robin Hood
+    ID: 39
+    Icon: {fileID: -8704231502140291222, guid: f6917cab104b5724fb807f347a39b2dc, type: 3}
+    Animator: {fileID: 9100000, guid: 01043bddee3d6514ba5d94a58713c89f, type: 2}
+    Range: 1
+  - Name: Rex
+    ID: 40
+    Icon: {fileID: 4371776884719080079, guid: 6e8025237e63ec0428044237176843e8, type: 3}
+    Animator: {fileID: 9100000, guid: 42b38518523c2a7478c189d1a32f8db7, type: 2}
+    Range: 1
+  - Name: Blue
+    ID: 41
+    Icon: {fileID: -2836563982769474024, guid: bf41296ecb9ea284f8bde8400fe74f0a, type: 3}
+    Animator: {fileID: 9100000, guid: b94ce3d56c14c2e4caa1505072a963e2, type: 2}
+    Range: 1
+  - Name: Red
+    ID: 42
+    Icon: {fileID: 4753794993557746876, guid: c1c745f79d330a44eb975585b32f7e77, type: 3}
+    Animator: {fileID: 9100000, guid: 01f8d8dac15bea241be6fd293f2eed53, type: 2}
+    Range: 1
+  - Name: Viking Archer Blonde
+    ID: 43
+    Icon: {fileID: 4152235952035937024, guid: 985b72dbc7b405043addccc4c4357735, type: 3}
+    Animator: {fileID: 9100000, guid: 4cf815e3f1ff3af4989dcd21b3bdbd5e, type: 2}
+    Range: 1
+  - Name: Viking Archer Ginger
+    ID: 44
+    Icon: {fileID: -5863291045622664547, guid: 8d801efa13a4f31478c0ba383eda7f98, type: 3}
+    Animator: {fileID: 9100000, guid: bac15985e2665794586dfe4369bba186, type: 2}
+    Range: 1
+  - Name: Viking Black
+    ID: 45
+    Icon: {fileID: -8704231502140291222, guid: 3909f80637fa26f47b3bce37840fdd4b, type: 3}
+    Animator: {fileID: 9100000, guid: 1f0c7bc3336f81d41a4b3e025da17cab, type: 2}
+    Range: 1
+  - Name: Viking Blond
+    ID: 46
+    Icon: {fileID: -8704231502140291222, guid: 9ec778f97a83a1647a0858f416e91665, type: 3}
+    Animator: {fileID: 9100000, guid: 6892d95ee2d74c442a52adbba9252fbb, type: 2}
+    Range: 1
+  - Name: Viking Brown
+    ID: 47
+    Icon: {fileID: -8704231502140291222, guid: 6141d05ab1680ee48823716243080dbf, type: 3}
+    Animator: {fileID: 9100000, guid: 6d85d368f0e2d8649b34d2dee0b6d91a, type: 2}
+    Range: 1
+  - Name: Viking Ginger
+    ID: 48
+    Icon: {fileID: -8704231502140291222, guid: 912cfe2db5fc7344993e8a2d86a92ca5, type: 3}
+    Animator: {fileID: 9100000, guid: b183f92b96963594eb0a349444967a3c, type: 2}
+    Range: 1
+  - Name: Viking Chief
+    ID: 49
+    Icon: {fileID: -2515422842421257187, guid: 5a14543ff6b2db643957fe3577e8d523, type: 3}
+    Animator: {fileID: 9100000, guid: a2a85365f35678a4f875c1e459a44298, type: 2}
+    Range: 1
+  - Name: Vlad
+    ID: 50
+    Icon: {fileID: -8704231502140291222, guid: 4157cdbbad706034a8116ea973ecd50d, type: 3}
+    Animator: {fileID: 9100000, guid: 5c6e6841060aaa64aa21b1d20f87b643, type: 2}
+    Range: 1
+  - Name: Beowulf
+    ID: 51
+    Icon: {fileID: -8704231502140291222, guid: a6c5aafd7b612d44db31cefc1e49b31b, type: 3}
+    Animator: {fileID: 9100000, guid: c31f20ed2ab6fac42b0f0a584f07fcab, type: 2}
+    Range: 1
+  - Name: Troll Blue
+    ID: 52
+    Icon: {fileID: 7393542532583419016, guid: c718f948b772c0b4bb1c48e12ddf4bbc, type: 3}
+    Animator: {fileID: 9100000, guid: d1b7f789a6438274c952e76ce5eea695, type: 2}
+    Range: 1
+  - Name: Troll Green
+    ID: 53
+    Icon: {fileID: -5663143931362125540, guid: 2ecf043f0f81dcb41b70778965c74a35, type: 3}
+    Animator: {fileID: 9100000, guid: 6ac204230e4f19945a764eebb9b40b57, type: 2}
+    Range: 1
+  - Name: Pirate Blue
+    ID: 54
+    Icon: {fileID: 5206465392426561169, guid: aebd3bdb50f0c604995201cd5c5abfa7, type: 3}
+    Animator: {fileID: 9100000, guid: b37329374adf7994d845c81f994c7761, type: 2}
+    Range: 1
+  - Name: Pirate Green
+    ID: 55
+    Icon: {fileID: -8265061086790509271, guid: 8ceb5160ed59bde4f9ede86bca132e42, type: 3}
+    Animator: {fileID: 9100000, guid: 20dfdbb2f0ba7ea4891865576ecc2d56, type: 2}
+    Range: 1
+  - Name: Pirate Red
+    ID: 56
+    Icon: {fileID: 1514045568227462248, guid: b90c0b9b9a895ec45807cec4a512edd9, type: 3}
+    Animator: {fileID: 9100000, guid: 477816a6732df3c47873d156208f6c4c, type: 2}
+    Range: 1
+  - Name: Pirate Yellow
+    ID: 57
+    Icon: {fileID: 7886598300054866426, guid: 59127c725e20e924d9a4df848174b74f, type: 3}
+    Animator: {fileID: 9100000, guid: 213569f6ec6c1b84a9d522b78e0bbe8f, type: 2}
+    Range: 1
+  - Name: Pirate Grunt Black
+    ID: 58
+    Icon: {fileID: -2083450253065980377, guid: 60f15b7b2f7da564b917f67ba1006e37, type: 3}
+    Animator: {fileID: 9100000, guid: 2b2dee8d67961694289568f94842a8ae, type: 2}
+    Range: 1
+  - Name: Pirate Grunt Brown
+    ID: 59
+    Icon: {fileID: 2160286821394334561, guid: 82d7e6cfd1bd74948bc8af765f8f9b76, type: 3}
+    Animator: {fileID: 9100000, guid: 10b61ae062c38984da6edf4f5189e02c, type: 2}
+    Range: 1
+  - Name: Pirate
+    ID: 60
+    Icon: {fileID: -8704231502140291222, guid: a7eb598ce3b731d4698e8cc100169697, type: 3}
+    Animator: {fileID: 9100000, guid: 8656bf146cf6fda48aac201f9c04240e, type: 2}
+    Range: 1
+  - Name: Pirate Black
+    ID: 61
+    Icon: {fileID: 233190408217775628, guid: 691db6f12bafcd94aa3feedc49829db7, type: 3}
+    Animator: {fileID: 9100000, guid: e854e2a0bbdac904aaa610ba8d2ba806, type: 2}
+    Range: 1
+  - Name: Pirate Captain
+    ID: 62
+    Icon: {fileID: -4445715006090538233, guid: 402d06f8d0a8b3f4aa49ab5433f202a1, type: 3}
+    Animator: {fileID: 9100000, guid: b4a54fec718f80e458612ce7269ac3fb, type: 2}
+    Range: 1
+  - Name: Long Hair Black
+    ID: 63
+    Icon: {fileID: -6596251291306099605, guid: 1f4aa16017e6be14086c7fbf99940e3a, type: 3}
+    Animator: {fileID: 9100000, guid: 8184ae1a18a27254a971605fc7e2161f, type: 2}
+    Range: 1
+  - Name: Long Hair Brown
+    ID: 64
+    Icon: {fileID: 2503378330808439859, guid: bbe3817a0a23c904e9628b8e4320669f, type: 3}
+    Animator: {fileID: 9100000, guid: e88a80ac040136840be72d9e6c12dac2, type: 2}
+    Range: 1
+  - Name: Armored Wolf
+    ID: 65
+    Icon: {fileID: -5927910978692360588, guid: ec7f88ac9c2d892438140a0f5c222125, type: 3}
+    Animator: {fileID: 9100000, guid: 2fc440e22da709d40b56319cc1c2e54f, type: 2}
+    Range: 1

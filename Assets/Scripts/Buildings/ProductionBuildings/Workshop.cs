@@ -33,16 +33,6 @@ public class Workshop : ProductionBuilding
     public override void UpgradeBuilding()
     {
         base.UpgradeBuilding();
-
-        if (Level == 2)
-        {
-            BuildingName = "Workshop LVL2";
-            workPositions = workPositionsTwo;
-        }
-        else if (Level == 3)
-        {
-            BuildingName = "Workshop LVL3";
-            workPositions = workPositionsThree;
-        }
+        SetBuildingNameByLevel("Workshop");
     }
 }

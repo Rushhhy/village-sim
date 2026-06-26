@@ -25,14 +25,6 @@ public class Barn : ProductionBuilding
     public override void UpgradeBuilding()
     {
         base.UpgradeBuilding();
-
-        if (Level == 2)
-        {
-            BuildingName = "Ranch LVL2";
-        }
-        else if (Level == 3)
-        {
-            BuildingName = "Ranch LVL3";
-        }
+        SetBuildingNameByLevel("Barn");
     }
 }

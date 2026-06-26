@@ -25,14 +25,6 @@ public class Bakery : ProductionBuilding
     public override void UpgradeBuilding()
     {
         base.UpgradeBuilding();
-
-        if (Level == 2)
-        {
-            BuildingName = "Bakery LVL2";
-        }
-        else if (Level == 3)
-        {
-            BuildingName = "Bakery LVL3";
-        }
+        SetBuildingNameByLevel("Bakery");
     }
 }
