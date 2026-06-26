@@ -12,11 +12,11 @@ The project is inspired by Anno-style city builders and Fire Emblem-style combat
 
 ### City Simulation Flow
 
-[PASTE_CITY_SIM_VIDEO_LINK_HERE](https://youtu.be/gz0W5_NfAck)
+(https://youtu.be/gz0W5_NfAck)
 
 ### Battle Flow
 
-[PASTE_BATTLE_VIDEO_LINK_HERE](https://www.youtube.com/watch?v=yHeatZA-FOQ)
+(https://www.youtube.com/watch?v=yHeatZA-FOQ)
 
 ---
 
